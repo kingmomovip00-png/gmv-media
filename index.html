@@ -91,19 +91,20 @@
   height: auto;
   max-width: 100%;
 }
-  
-/* GMV Premium visual layer — original green identity, logo, icons and font retained */
-:root{--green:#00a33b;--ink:#101713;--line:rgba(0,163,59,.14)}
-body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.16),transparent 34%),radial-gradient(ellipse at 88% 42%,rgba(0,163,59,.12),transparent 38%),linear-gradient(135deg,#f8fcf9 0%,#e8f7ed 52%,#f7fbf8 100%);background-attachment:fixed}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.28;background-image:radial-gradient(rgba(0,110,43,.12) .7px,transparent .7px);background-size:22px 22px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
-.wrap{max-width:1280px;padding:34px 28px}.menuBtn{width:52px;height:52px;display:grid;place-items:center;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.8);backdrop-filter:blur(18px);box-shadow:0 12px 35px rgba(0,70,25,.12);font-size:22px;transition:.25s}.menuBtn:hover{transform:translateY(-3px)}
-.sidebar{right:-390px;width:min(360px,88vw);padding:30px 22px;background:linear-gradient(155deg,rgba(10,24,16,.97),rgba(5,44,23,.94));border-left:1px solid rgba(255,255,255,.12);box-shadow:-25px 0 70px rgba(0,0,0,.2);backdrop-filter:blur(24px);transition:right .42s cubic-bezier(.2,.8,.2,1)}.sidebar.open{right:0}.sidebar::before{content:"GMV";display:block;font:800 30px Arial,sans-serif;letter-spacing:5px;color:#fff;margin:12px 12px 34px}.navItem{padding:15px 14px;margin:7px 0;border:1px solid transparent;border-radius:14px;color:rgba(255,255,255,.85);transition:all .25s}.navItem:hover{background:rgba(0,163,59,.2);border-color:rgba(95,230,145,.2);transform:translateX(-4px);color:#fff}.navItem img{width:23px;height:23px}
-.logoFrame{width:148px;height:148px;background:rgba(255,255,255,.78);border:1px solid #fff;box-shadow:0 22px 60px rgba(0,90,35,.15),inset 0 1px 0 #fff;backdrop-filter:blur(15px);animation:gmvFloat 5s ease-in-out infinite}@keyframes gmvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.socials a,.offerCard,.feedbackCard,.visit{border:1px solid rgba(255,255,255,.9);background:rgba(255,255,255,.7);backdrop-filter:blur(14px);box-shadow:0 12px 35px rgba(0,75,28,.07);transition:transform .28s,box-shadow .28s}.socials a:hover,.offerCard:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(0,75,28,.15)}
-.section{padding:20px;border:1px solid rgba(255,255,255,.82);border-radius:24px;background:rgba(255,255,255,.43);backdrop-filter:blur(12px);box-shadow:0 18px 55px rgba(0,75,28,.055);margin-top:30px}.titleRow h3{font-size:22px}.scrollerContainer{padding:6px 0;cursor:grab;touch-action:pan-y}.scrollerContainer:active{cursor:grabbing}.scroller{width:max-content;will-change:transform;gap:14px}.scroller img,.scroller video{width:260px;height:178px;object-fit:cover;border-radius:17px;box-shadow:0 12px 28px rgba(0,0,0,.1);transition:transform .3s}.scroller img:hover{transform:translateY(-5px) scale(1.015)}.gallery-empty{padding:24px 16px;color:#66816f}.marquee-controls button{border:1px solid var(--line);background:rgba(255,255,255,.8);border-radius:11px;padding:7px 12px;color:var(--green);cursor:pointer}.section{animation:gmvReveal .7s both}@keyframes gmvReveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:600px){.wrap{padding:12px}.section{padding:13px;border-radius:18px}.scroller img,.scroller video{width:205px;height:145px}.logoFrame{width:122px;height:122px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
-</style>
+/* GMV visual refresh: original content and identity remain intact */
+:root{--green:#00a33b;--ink:#142219;--glass:rgba(255,255,255,.78);--line:rgba(0,120,45,.13)}
+body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.13),transparent 34%),radial-gradient(ellipse at 88% 42%,rgba(0,163,59,.10),transparent 38%),linear-gradient(135deg,#f9fcfa 0%,#e9f7ee 55%,#f8fcf9 100%);background-attachment:fixed}
+.wrap{max-width:1280px;padding:30px 26px}
+.menuBtn{width:52px;height:52px;display:grid;place-items:center;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);box-shadow:0 12px 32px rgba(0,70,25,.13);font-size:22px;transition:transform .22s,box-shadow .22s}.menuBtn:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(0,70,25,.18)}
+.sidebar{right:-390px;width:min(360px,88vw);padding:28px 20px;background:linear-gradient(155deg,rgba(9,25,15,.97),rgba(4,55,25,.96));border-left:1px solid rgba(255,255,255,.12);box-shadow:-24px 0 70px rgba(0,0,0,.22);backdrop-filter:blur(22px);transition:right .38s cubic-bezier(.2,.8,.2,1)}.sidebar.open{right:0}.sidebar::before{content:"GMV MEDIA";display:block;font:800 23px Arial,sans-serif;letter-spacing:3px;color:#fff;margin:10px 12px 30px}.navItem{padding:15px 14px;margin:7px 0;border:1px solid transparent;border-radius:14px;color:rgba(255,255,255,.88);transition:background .22s,border-color .22s,transform .22s}.navItem:hover{background:rgba(0,163,59,.22);border-color:rgba(130,245,170,.2);transform:translateX(-4px);color:#fff}.navItem img{width:23px;height:23px}
+.logoFrame{width:148px;height:148px;background:rgba(255,255,255,.84);border:1px solid #fff;box-shadow:0 22px 60px rgba(0,90,35,.15),inset 0 1px 0 #fff;backdrop-filter:blur(14px);animation:gmvFloat 5s ease-in-out infinite}@keyframes gmvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.socials a,.offerCard,.feedbackCard,.visit{border:1px solid rgba(255,255,255,.9);background:rgba(255,255,255,.76);backdrop-filter:blur(12px);box-shadow:0 12px 32px rgba(0,75,28,.07);transition:transform .25s,box-shadow .25s}.socials a:hover,.offerCard:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(0,75,28,.14)}
+.section{padding:18px;border:1px solid rgba(255,255,255,.85);border-radius:22px;background:rgba(255,255,255,.48);backdrop-filter:blur(10px);box-shadow:0 16px 45px rgba(0,75,28,.055);margin-top:28px}.titleRow h3{font-size:22px}.scrollerContainer{padding:6px 0;cursor:grab;touch-action:pan-y}.scrollerContainer:active{cursor:grabbing}.scroller{width:max-content;will-change:transform;gap:14px}.scroller img,.scroller video{width:250px;height:170px;object-fit:cover;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.09);transition:transform .25s}.scroller img:hover{transform:translateY(-4px) scale(1.012)}.marquee-controls button{border:1px solid var(--line);background:rgba(255,255,255,.88);border-radius:10px;padding:7px 12px;color:var(--green);font:inherit;cursor:pointer}.section{animation:gmvReveal .55s both}@keyframes gmvReveal{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.wrap{padding:12px}.section{padding:13px;border-radius:18px}.scroller img,.scroller video{width:205px;height:145px}.logoFrame{width:122px;height:122px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+  </style>
 </head>
 <body>
   <div id="gmvToast" role="status" aria-live="polite"></div>
@@ -133,16 +134,39 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opac
       </div>
 
       <section class="offersWrap" id="offersWrap">
-        <div class="offerCard" id="offer1"><div class="offerOverlay">عرض مميز</div><img src="offers/offer1.jpg" class="active" alt="offer1"><img src="offers/offer2.jpg" alt="offer2"></div>
-        <div class="offerCard" id="offer2"><div class="offerOverlay">خصم حصري</div><img src="offers/offer2.jpg" class="active" alt="offer2b"><img src="offers/offer1.jpg" alt="offer1b"></div>
+        <div class="offerCard" id="offer1"><div class="offerOverlay">عرض مميز</div><img src="offers/offer1.webp" class="active" alt="offer1"><img src="offers/offer2.webp" alt="offer2" loading="lazy" decoding="async"></div>
+        <div class="offerCard" id="offer2"><div class="offerOverlay">خصم حصري</div><img src="offers/offer2.webp" class="active" alt="offer2b"><img src="offers/offer1.webp" alt="offer1b" loading="lazy" decoding="async"></div>
       </section>
     </header>
 
     <section class="section">
-      <div class="titleRow"><h3>أعمالنا</h3><div class="marquee-controls"><button type="button" id="marqueeToggle">إيقاف الحركة</button></div></div>
+      <div class="titleRow"><h3>أعمالنا</h3><div class="marquee-controls"><button type="button" id="marqueeToggle" aria-pressed="false">إيقاف الحركة</button></div></div>
       <div class="scrollerContainer">
   <div class="scroller" id="worksScroller">
-    <p class="gallery-empty">قريبًا — أعمالنا الجديدة</p>
+    <img src="1.webp" alt="work 1" loading="eager" decoding="async">
+    <img src="2.webp" alt="work 2" loading="lazy" decoding="async">
+    <img src="3.webp" alt="work 3" loading="lazy" decoding="async">
+    <img src="4.webp" alt="work 4" loading="lazy" decoding="async">
+    <img src="5.webp" alt="work 5" loading="lazy" decoding="async">
+    <img src="6.webp" alt="work 6" loading="lazy" decoding="async">
+    <img src="7.webp" alt="work 7" loading="lazy" decoding="async">
+    <img src="8.webp" alt="work 8" loading="lazy" decoding="async">
+    <img src="9.webp" alt="work 9" loading="lazy" decoding="async">
+    <img src="10.webp" alt="work 10" loading="lazy" decoding="async">
+    <img src="11.webp" alt="work 11" loading="lazy" decoding="async">
+    <img src="12.webp" alt="work 12" loading="lazy" decoding="async">
+    <img src="13.webp" alt="work 13" loading="lazy" decoding="async">
+    <img src="14.webp" alt="work 14" loading="lazy" decoding="async">
+    <img src="15.webp" alt="work 15" loading="lazy" decoding="async">
+    <img src="16.webp" alt="work 16" loading="lazy" decoding="async">
+    <img src="17.webp" alt="work 17" loading="lazy" decoding="async">
+    <img src="18.webp" alt="work 18" loading="lazy" decoding="async">
+    <img src="19.webp" alt="work 19" loading="lazy" decoding="async">
+    <img src="20.webp" alt="work 20" loading="lazy" decoding="async">
+    <img src="21.webp" alt="work 21" loading="lazy" decoding="async">
+    <img src="22.webp" alt="work 22" loading="lazy" decoding="async">
+    <img src="23.webp" alt="work 23" loading="lazy" decoding="async">
+    <img src="24.webp" alt="work 24" loading="lazy" decoding="async">
   </div>
 </div>
     </section>
@@ -151,10 +175,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opac
       <div class="titleRow"><h3>آراء عملائنا</h3></div>
       <div class="scrollerContainer">
   <div class="scroller" id="reviewsScroller">
-    <img src="r1.webp" alt="review 1">
-    <img src="r2.webp" alt="review 2">
-    <img src="r3.webp" alt="review 3">
-    <img src="r4.webp" alt="review 4">
+    <img src="r1.webp" alt="review 1" loading="lazy" decoding="async">
+    <img src="r2.webp" alt="review 2" loading="lazy" decoding="async">
+    <img src="r3.webp" alt="review 3" loading="lazy" decoding="async">
+    <img src="r4.webp" alt="review 4" loading="lazy" decoding="async">
   </div>
 </div>
       <button id="openFeedback" aria-haspopup="dialog">شارك رأيك فينا</button>
@@ -621,11 +645,40 @@ dialog.addEventListener("click", (e) => {
   }
 });
   </script>
+
 <script>
-(()=>{const track=document.getElementById('worksScroller'),view=track?.parentElement,toggle=document.getElementById('marqueeToggle');if(!track||!view)return;let running=true,offset=0,last=0,speed=34,direction=1,drag=false,startX=0,startOffset=0;
-async function init(){try{const [sr,mr]=await Promise.all([fetch('/api/public/settings'),fetch('/api/public/media?type=work')]);if(sr.ok){const s=await sr.json();speed=Math.max(8,Math.min(100,+s.speed||34));direction=s.direction==='ltr'?-1:1;running=s.mode!=='static'}if(mr.ok){const d=await mr.json();if(d.items?.length){track.innerHTML=d.items.map(x=>x.type==='video'?`<video src="${x.url}" muted loop playsinline autoplay></video>`:`<img src="${x.url}" alt="${(x.title||'عمل GMV').replace(/"/g,'&quot;')}" loading="lazy">`).join('');[...track.children].forEach(n=>track.append(n.cloneNode(true)))}}}catch(e){}toggle.textContent=running?'إيقاف الحركة':'تشغيل الحركة';requestAnimationFrame(frame)}
-function frame(t){if(!last)last=t;let dt=Math.min(40,t-last);last=t;if(running&&!drag&&track.scrollWidth>view.clientWidth){offset-=direction*speed*dt/1000;let half=track.scrollWidth/2;if(offset<=-half)offset=0;if(offset>0)offset=-half;track.style.transform=`translateX(${offset}px)`}requestAnimationFrame(frame)}
-toggle?.addEventListener('click',()=>{running=!running;toggle.textContent=running?'إيقاف الحركة':'تشغيل الحركة'});view.addEventListener('pointerdown',e=>{drag=true;startX=e.clientX;startOffset=offset;view.setPointerCapture?.(e.pointerId)});view.addEventListener('pointermove',e=>{if(drag){offset=startOffset+e.clientX-startX;track.style.transform=`translateX(${offset}px)`}});['pointerup','pointercancel','pointerleave'].forEach(n=>view.addEventListener(n,()=>drag=false));init()})();
+(()=>{
+ const track=document.getElementById('worksScroller');
+ const view=track?.parentElement;
+ const toggle=document.getElementById('marqueeToggle');
+ if(!track||!view||!toggle)return;
+ let running=true,offset=0,last=0,speed=34,direction=1,dragging=false,startX=0,startOffset=0,raf=0,half=0;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function measure(){half=track.scrollWidth/2;if(!half)half=track.scrollWidth;}
+ function draw(){track.style.transform=`translate3d(${offset}px,0,0)`;}
+ function stopFrame(){if(raf)cancelAnimationFrame(raf);raf=0;last=0;}
+ function frame(t){if(!running||dragging||document.hidden){stopFrame();return;}if(!last)last=t;const dt=Math.min(40,t-last);last=t;measure();if(half>view.clientWidth){offset-=direction*speed*dt/1000;if(offset<=-half)offset=0;if(offset>0)offset=-half;draw();}raf=requestAnimationFrame(frame);}
+ function start(){if(!running||reduced||raf)return;raf=requestAnimationFrame(frame);}
+ function setRunning(v){running=v;toggle.textContent=running?'إيقاف الحركة':'تشغيل الحركة';toggle.setAttribute('aria-pressed',String(!running));if(running)start();else stopFrame();}
+ async function load(){
+   try{
+    const [sr,mr]=await Promise.all([fetch('/api/public/settings',{cache:'no-store'}),fetch('/api/public/media?type=work',{cache:'no-store'})]);
+    if(sr.ok){const s=await sr.json();speed=Math.max(8,Math.min(100,Number(s.speed)||34));direction=s.direction==='ltr'?-1:1;if(s.mode==='static')setRunning(false);}
+    if(mr.ok){const d=await mr.json();if(Array.isArray(d.items)&&d.items.length){track.innerHTML=d.items.map(x=>x.type==='video'?`<video src="${String(x.url).replace(/"/g,'&quot;')}" muted loop playsinline autoplay preload="metadata"></video>`:`<img src="${String(x.url).replace(/"/g,'&quot;')}" alt="${String(x.title||'عمل GMV').replace(/[&<>\"]/g,'')}" loading="lazy" decoding="async">`).join('');}}
+   }catch(e){console.warn('GMV gallery fallback active',e);}
+   const originals=[...track.children];if(originals.length){originals.forEach(n=>track.append(n.cloneNode(true)));}
+   measure();draw();if(running)start();
+ }
+ toggle.addEventListener('click',()=>setRunning(!running));
+ view.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;dragging=true;startX=e.clientX;startOffset=offset;stopFrame();view.setPointerCapture?.(e.pointerId);});
+ view.addEventListener('pointermove',e=>{if(!dragging)return;offset=startOffset+e.clientX-startX;if(half){if(offset < -half)offset+=half;if(offset>0)offset-=half;}draw();});
+ const endDrag=()=>{if(!dragging)return;dragging=false;if(running)start();};
+ view.addEventListener('pointerup',endDrag);view.addEventListener('pointercancel',endDrag);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)stopFrame();else if(running)start();});
+ window.addEventListener('resize',()=>{measure();});
+ load();
+})();
 </script>
+
 </body>
 </html>

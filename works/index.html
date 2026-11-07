@@ -8,7 +8,7 @@
 <style>
 @font-face {
   font-family: 'GMVFont';
-  src: url('../gmvfont.ttf') format('truetype');
+  src: url('../GMVFont.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -194,7 +194,6 @@ body::before{
   max-width: 100%;
 }
 </style>
-<style id="gmv-premium-layer">body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.16),transparent 34%),radial-gradient(ellipse at 88% 42%,rgba(0,163,59,.12),transparent 38%),linear-gradient(135deg,#f8fcf9,#e8f7ed 55%,#f7fbf8)!important;background-attachment:fixed!important}body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.22;background-image:radial-gradient(rgba(0,110,43,.12) .7px,transparent .7px);background-size:22px 22px}.menuBtn{border-radius:15px!important;background:rgba(255,255,255,.82)!important;backdrop-filter:blur(16px);box-shadow:0 12px 35px rgba(0,70,25,.12);transition:.25s}.menuBtn:hover{transform:translateY(-3px)}.sidebar{background:linear-gradient(155deg,rgba(10,24,16,.97),rgba(5,44,23,.94))!important;backdrop-filter:blur(24px)!important;box-shadow:-25px 0 70px rgba(0,0,0,.2)}.navItem{border-radius:14px!important;transition:all .25s!important}.navItem:hover{background:rgba(0,163,59,.2)!important;transform:translateX(-4px)}button,.filter button{transition:transform .22s,box-shadow .22s,background .22s}button:hover,.filter button:hover{transform:translateY(-2px)}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}</style>
 </head>
 
 <body>
@@ -204,7 +203,7 @@ body::before{
 <aside class="sidebar" id="sidebar">
   <div class="navItem" id="homeLink" data-href="../index.html"><img src="../icons/home.svg"><span>الرئيسية</span></div>
   <div class="navItem" id="servicesLink" data-href="#"><img src="../icons/services.svg"><span>خدماتنا</span></div>
-  <div class="navItem" id="worksLink" data-href="../works/index.html"><img src="../icons/works.svg"><span>أعمالنا</span></div>
+  <div class="navItem" id="worksLink" data-href="../Works/index.html"><img src="../icons/works.svg"><span>أعمالنا</span></div>
   <div class="navItem" id="reviewsLink" data-href="../reviews/index.html"><img src="../icons/reviews.svg"><span>آراء العملاء</span></div>
   <div class="navItem" id="contactLink" data-href="index.html"><img src="../icons/contact.svg"><span>خدمة العملاء</span></div>
 </aside>
@@ -246,27 +245,46 @@ document.querySelectorAll('.navItem').forEach(i=>{
 =========================== */
 
 let items = [];
-const masonry = document.getElementById("masonryGrid");
-async function loadPortfolio(){
-  try {
-    const response = await fetch("../api/public/media?type=work");
-    if (!response.ok) throw new Error("API unavailable");
-    const data = await response.json();
-    items = (data.items || []).map(x => ({type:x.type === "video" ? "video" : "design", src:x.url, title:x.title || "GMV Media"}));
-  } catch (error) { items = []; }
-  masonry.innerHTML = "";
-  if (!items.length) {
-    masonry.innerHTML = '<p style="text-align:center;color:#66816f;padding:38px 12px;">قريبًا — سيتم عرض أعمالنا الجديدة هنا.</p>';
-    return;
-  }
-  items.forEach(it=>{
-    const div=document.createElement("div");div.className=`masonry-item ${it.type}`;
-    if(it.type==="design"){const img=document.createElement("img");img.loading="lazy";img.src=it.src;img.alt=it.title;div.appendChild(img);}
-    else{const video=document.createElement("video");video.muted=true;video.autoplay=true;video.loop=true;video.playsInline=true;video.preload="metadata";video.src=it.src;div.appendChild(video);}
-    masonry.appendChild(div);
-  });
+
+// images
+for(let i=1;i<=24;i++){
+  items.push({type:"design", src:`design/${i}.webp`});
 }
-loadPortfolio();
+// videos
+for(let i=1;i<=3;i++){
+  items.push({type:"video", src:`videos/${i}.webm`});
+}
+
+// random shuffle
+items.sort(()=> Math.random() - 0.5);
+
+const masonry = document.getElementById("masonryGrid");
+
+items.forEach(it=>{
+  const div = document.createElement("div");
+  div.className = `masonry-item ${it.type}`;
+
+  if(it.type==="design"){
+    div.innerHTML = `<img loading="lazy" src="${it.src}">`;
+  } else {
+    div.innerHTML = `<video muted loop playsinline preload="none"><source src="${it.src}" type="video/webm"></video>`;
+  }
+
+  masonry.appendChild(div);
+});
+
+// Load and play gallery videos only when they are near the viewport.
+const galleryVideos = document.querySelectorAll("#masonryGrid video");
+if ("IntersectionObserver" in window) {
+  const videoObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (entry.isIntersecting) video.play().catch(()=>{});
+      else video.pause();
+    });
+  }, { rootMargin: "180px" });
+  galleryVideos.forEach(video => videoObserver.observe(video));
+}
 
 /* FILTER */
 const btns = document.querySelectorAll(".filter button");
@@ -343,7 +361,7 @@ document.getElementById("reviewsLink").addEventListener("click", () => {
   window.location.href = "../reviews/index.html";
 });
 document.getElementById("worksLink").addEventListener("click", () => {
-  window.location.href = "../works/index.html";
+  window.location.href = "../Works/index.html";
 });
 </script>
 
