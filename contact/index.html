@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>خدمة العملاء — GMV Media</title>
+
+<style>
+@font-face {
+  font-family: 'GMVFont';
+  src: url('../GMVFont.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root{
+  --green:#00a33b;
+  --muted:#666;
+  --black:#111;
+  --bg-opacity:0.05;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'GMVFont',Arial;
+  background:linear-gradient(135deg,#ffffff 0%,#9ce5b6 100%);
+  color:var(--black);
+  overflow-x:hidden;
+  min-height:100vh;
+  position:relative;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url('../logo.png');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:480px;
+  opacity:var(--bg-opacity);
+  z-index:1;
+  pointer-events:none;
+  filter:grayscale(1);
+}
+
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:30px;
+  text-align:center;
+  position:relative;
+  z-index:3;
+}
+
+/* MENU */
+.menuBtn{
+  position:fixed;
+  right:18px;
+  top:18px;
+  background:#fff;
+  border-radius:10px;
+  padding:10px;
+  border:1px solid #eee;
+  cursor:pointer;
+  z-index:2000;
+}
+
+.sidebar{
+  position:fixed;
+  right:-100%;
+  top:0;
+  width:330px;
+  height:100%;
+  background:rgba(0,0,0,.9);
+  color:#fff;
+  transition:.4s;
+  z-index:1900;
+  padding:30px;
+  backdrop-filter:blur(6px);
+}
+.sidebar.open{ right:0; }
+
+.navItem{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.navItem:hover{
+  background:rgba(255,255,255,.1);
+}
+.navItem img{ width:26px; filter:invert(1); }
+
+/* FORM BOX */
+.formBox{
+  margin-top:40px;
+  padding:25px;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+  text-align:right;
+}
+
+.formBox h2{
+  text-align:center;
+  color:var(--green);
+}
+
+.formBox input,
+.formBox textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:15px;
+  font-family:'GMVFont';
+}
+
+.formBox button{
+  width:100%;
+  padding:12px;
+  background:var(--green);
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-size:17px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+/* SOCIALS */
+.socials{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+.socials a{
+  background:#fff;
+  padding:10px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+.socials img{ width:25px; }
+
+#toast{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#111;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:8px;
+  display:none;
+}
+
+.faqBtn{
+  width:100%;
+  background:var(--green);
+  color:#fff;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  margin-top:14px;
+  font-size:16px;
+  cursor:pointer;
+}
+@media (max-width: 600px) {
+  .wrap {
+    padding: 10px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2, h3 {
+    font-size: 18px;
+  }
+
+  .socials a {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .masonry-item {
+    width: 100%;
+  }
+}
+</style>
+<style id="gmv-premium-refresh">
+:root{--gmv-green:#00a33b;--gmv-glass:rgba(255,255,255,.72)}
+body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.13),transparent 34%),radial-gradient(ellipse at 90% 78%,rgba(0,163,59,.09),transparent 35%),linear-gradient(135deg,#f8fbf9,#eaf5ee 55%,#f9fbfa)!important;background-attachment:fixed!important}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.28) 45%,transparent 60%);opacity:.55}
+.wrap{position:relative;z-index:2}
+.menuBtn{background:rgba(255,255,255,.78)!important;border:1px solid rgba(0,163,59,.18)!important;box-shadow:0 12px 34px rgba(0,40,15,.12)!important;backdrop-filter:blur(18px);border-radius:14px!important;transition:transform .25s,box-shadow .25s}
+.menuBtn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(0,163,59,.18)!important}
+.sidebar{background:linear-gradient(160deg,rgba(8,20,13,.96),rgba(14,37,24,.94))!important;border-left:1px solid rgba(0,163,59,.28);box-shadow:-24px 0 80px rgba(0,0,0,.22);backdrop-filter:blur(24px)!important;width:min(360px,88vw)!important;padding:30px 22px!important}
+.navItem{border:1px solid transparent;margin:7px 0;padding:14px 16px!important;border-radius:14px!important;transition:all .25s!important}
+.navItem:hover{background:linear-gradient(90deg,rgba(0,163,59,.24),rgba(255,255,255,.04))!important;border-color:rgba(0,163,59,.25);transform:translateX(-4px)}
+.logoFrame,.socials a,.visit,.feedbackCard,.offerCard,.scroller img{box-shadow:0 14px 38px rgba(7,45,20,.10)!important;border:1px solid rgba(0,163,59,.10);transition:transform .3s ease,box-shadow .3s ease}
+.logoFrame{background:rgba(255,255,255,.75)!important;backdrop-filter:blur(12px)}
+.scrollerContainer{scroll-behavior:smooth;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.scroller img:hover{transform:translateY(-5px) scale(1.025);box-shadow:0 20px 40px rgba(0,163,59,.18)!important}
+.titleRow h3,h1{ text-shadow:0 5px 20px rgba(0,163,59,.12)}
+.adminMediaPlaceholder{min-height:150px;width:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed rgba(0,163,59,.4);border-radius:18px;background:rgba(255,255,255,.48);color:#477257;backdrop-filter:blur(8px)}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+
+<body>
+
+<div class="menuBtn" id="menuBtn">☰</div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="navItem" id="homeLink" data-href="../index.html"><img src="../icons/home.svg"><span>الرئيسية</span></div>
+  <div class="navItem" id="servicesLink" data-href="#"><img src="../icons/services.svg"><span>خدماتنا</span></div>
+  <div class="navItem" id="worksLink" data-href="../Works/index.html"><img src="../icons/works.svg"><span>أعمالنا</span></div>
+  <div class="navItem" id="reviewsLink" data-href="../reviews/index.html"><img src="../icons/reviews.svg"><span>آراء العملاء</span></div>
+  <div class="navItem" id="contactLink" data-href="index.html"><img src="../icons/contact.svg"><span>خدمة العملاء</span></div>
+</aside>
+
+<div class="wrap">
+
+  <h1 style="color:var(--green);margin-bottom:5px;">خدمة العملاء</h1>
+  <p style="color:var(--muted);margin-bottom:25px;">تواصل معنا وسيتم الرد عليك في أسرع وقت</p>
+
+  <div class="formBox">
+    <h2>أرسل مشكلتك الآن</h2>
+
+    <input type="text" id="name" placeholder="اسمك" required>
+    <input type="text" id="whatsapp" placeholder="رقم الواتساب" required>
+    <textarea id="message" rows="5" placeholder="اكتب رسالتك / مشكلتك..." required></textarea>
+
+    <button id="sendBtn">إرسال</button>
+    <button class="faqBtn" id="faqBtn">الأسئلة الشائعة</button>
+  </div>
+
+  <div class="socials">
+    <a href="#"><img src="../icons/facebook.svg"></a>
+    <a href="#"><img src="../icons/instagram.svg"></a>
+    <a href="#"><img src="../icons/tiktok.svg"></a>
+    <a href="#"><img src="../icons/youtube.svg"></a>
+    <a href="#"><img src="../icons/pinterest.svg"></a>
+    <a href="#"><img src="../icons/whatsapp.svg"></a>
+  </div>
+
+</div>
+
+<div id="toast"></div>
+
+<script type="module">
+
+/* ========== SIDEBAR ========== */
+document.getElementById("menuBtn").onclick = () =>
+  document.getElementById("sidebar").classList.toggle("open");
+
+document.querySelectorAll(".navItem").forEach(n=>{
+  n.onclick = ()=> location.href = n.dataset.href;
+});
+
+/* ========== FIREBASE ========== */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAq8CVFxYPWAa9HBVSSz6NrEcek_UVf2QM",
+  authDomain: "gmv-media.firebaseapp.com",
+  databaseURL: "https://gmv-media-default-rtdb.firebaseio.com",
+  projectId: "gmv-media",
+  storageBucket: "gmv-media.firebasestorage.app",
+  messagingSenderId: "316734655967",
+  appId: "1:316734655967:web:3ca0582c8b6c9db835086a"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+/* ========== TELEGRAM DATA ========== */
+const BOT = "8438555430:AAGH0A1d-CjJzYp8dDBVZvO4OV0x2NFjIhM";
+const CHAT = "7056197961";
+
+/* ========== SEND MESSAGE ========== */
+document.getElementById("sendBtn").onclick = async ()=>{
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("whatsapp").value.trim();
+  const msg = document.getElementById("message").value.trim();
+  const date = new Date().toLocaleString();
+
+  if(!name || !phone || !msg){
+    showToast("من فضلك أكمل البيانات");
+    return;
+  }
+
+  const payload = { name, phone, msg, date };
+
+  // Save to Firebase
+  await push(ref(db, "supportMessages"), payload);
+
+  // Send Telegram
+  const text =
+  `📩 رسالة دعم جديدة:\n\n👤 الاسم: ${name}\n📱 الواتس: ${phone}\n📝 الرسالة:\n${msg}\n\n⏰ التاريخ: ${date}`;
+
+  await fetch(`https://api.telegram.org/bot${BOT}/sendMessage`,{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({ chat_id:CHAT, text:text })
+  });
+
+  showToast("تم إرسال رسالتك بنجاح ❤️");
+  document.getElementById("name").value="";
+  document.getElementById("whatsapp").value="";
+  document.getElementById("message").value="";
+};
+
+/* Toast */
+function showToast(t){
+  const x=document.getElementById("toast");
+  x.innerText=t;
+  x.style.display="block";
+  setTimeout(()=> x.style.display="none",2500);
+}
+document.getElementById("faqBtn").onclick = () => {
+  location.href = "../faq/index.html";
+};
+
+document.getElementById("servicesLink").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const type = (localStorage.getItem("gmv_usertype") || "").toLowerCase();
+
+  let target = "../server-small/index.html";  // افتراضي
+
+  if (type.includes("براند"))       target = "../server-brand/index.html";
+  else if (type.includes("خارج") || type.includes("بره"))  
+                                   target = "../server-outside/index.html";
+
+  window.location.href = target;
+});
+document.getElementById("contactLink").addEventListener("click", () => {
+  window.location.href = "../contact/index.html";
+});
+document.getElementById("reviewsLink").addEventListener("click", () => {
+  window.location.href = "../reviews/index.html";
+});
+document.getElementById("worksLink").addEventListener("click", () => {
+  window.location.href = "../Works/index.html";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>الأسئلة الشائعة — GMV Media</title>
+
+<style>
+@font-face {
+  font-family: 'GMVFont';
+  src: url('../GMVFont.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root{
+  --green:#00a33b;
+  --muted:#666;
+  --black:#111;
+  --bg-opacity:0.05;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'GMVFont',Arial;
+  background:linear-gradient(135deg,#ffffff 0%,#9ce5b6 100%);
+  color:var(--black);
+  overflow-x:hidden;
+  position:relative;
+  min-height:100vh;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url('../logo.png');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:450px;
+  opacity:var(--bg-opacity);
+  z-index:1;
+  pointer-events:none;
+  filter:grayscale(1);
+}
+
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:25px;
+  position:relative;
+  z-index:3;
+}
+
+/* ===== MENU BUTTON ===== */
+.menuBtn{
+  position:fixed;
+  right:18px;
+  top:18px;
+  background:#fff;
+  border-radius:10px;
+  padding:10px;
+  border:1px solid #eee;
+  cursor:pointer;
+  z-index:2000;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  position:fixed;
+  right:-100%;
+  top:0;
+  width:330px;
+  height:100%;
+  background:rgba(0,0,0,.9);
+  color:#fff;
+  transition:.4s;
+  z-index:1900;
+  padding:30px;
+  backdrop-filter:blur(6px);
+}
+.sidebar.open{ right:0; }
+
+.navItem{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:.2s;
+}
+.navItem:hover{
+  background:rgba(255,255,255,.1);
+}
+.navItem img{
+  width:28px;
+  filter:invert(1);
+}
+
+/* ===== FAQ STYLE ===== */
+.faq-box{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+  padding:15px 18px;
+  margin-bottom:12px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.faq-box:hover{
+  background:#f4fff7;
+}
+
+.question{
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+  color:var(--black);
+}
+
+.answer{
+  margin-top:10px;
+  color:var(--muted);
+  line-height:1.7;
+  display:none;
+}
+
+.arrow{
+  transition:.3s;
+}
+
+.open .arrow{
+  transform:rotate(180deg);
+}
+
+.open .answer{
+  display:block;
+}
+
+/* Social Icons */
+.social{
+  text-align:center;
+  margin-top:40px;
+}
+
+.social img{
+  width:38px;
+  margin:0 5px;
+  cursor:pointer;
+}
+@media (max-width: 600px) {
+  .wrap {
+    padding: 10px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2, h3 {
+    font-size: 18px;
+  }
+
+  .socials a {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .masonry-item {
+    width: 100%;
+  }
+}
+</style>
+<style id="gmv-premium-refresh">
+:root{--gmv-green:#00a33b;--gmv-glass:rgba(255,255,255,.72)}
+body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.13),transparent 34%),radial-gradient(ellipse at 90% 78%,rgba(0,163,59,.09),transparent 35%),linear-gradient(135deg,#f8fbf9,#eaf5ee 55%,#f9fbfa)!important;background-attachment:fixed!important}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.28) 45%,transparent 60%);opacity:.55}
+.wrap{position:relative;z-index:2}
+.menuBtn{background:rgba(255,255,255,.78)!important;border:1px solid rgba(0,163,59,.18)!important;box-shadow:0 12px 34px rgba(0,40,15,.12)!important;backdrop-filter:blur(18px);border-radius:14px!important;transition:transform .25s,box-shadow .25s}
+.menuBtn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(0,163,59,.18)!important}
+.sidebar{background:linear-gradient(160deg,rgba(8,20,13,.96),rgba(14,37,24,.94))!important;border-left:1px solid rgba(0,163,59,.28);box-shadow:-24px 0 80px rgba(0,0,0,.22);backdrop-filter:blur(24px)!important;width:min(360px,88vw)!important;padding:30px 22px!important}
+.navItem{border:1px solid transparent;margin:7px 0;padding:14px 16px!important;border-radius:14px!important;transition:all .25s!important}
+.navItem:hover{background:linear-gradient(90deg,rgba(0,163,59,.24),rgba(255,255,255,.04))!important;border-color:rgba(0,163,59,.25);transform:translateX(-4px)}
+.logoFrame,.socials a,.visit,.feedbackCard,.offerCard,.scroller img{box-shadow:0 14px 38px rgba(7,45,20,.10)!important;border:1px solid rgba(0,163,59,.10);transition:transform .3s ease,box-shadow .3s ease}
+.logoFrame{background:rgba(255,255,255,.75)!important;backdrop-filter:blur(12px)}
+.scrollerContainer{scroll-behavior:smooth;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.scroller img:hover{transform:translateY(-5px) scale(1.025);box-shadow:0 20px 40px rgba(0,163,59,.18)!important}
+.titleRow h3,h1{ text-shadow:0 5px 20px rgba(0,163,59,.12)}
+.adminMediaPlaceholder{min-height:150px;width:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed rgba(0,163,59,.4);border-radius:18px;background:rgba(255,255,255,.48);color:#477257;backdrop-filter:blur(8px)}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+
+<body>
+
+<div class="menuBtn" id="menuBtn">☰</div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="navItem" id="homeLink" data-href="../index.html"><img src="../icons/home.svg"><span>الرئيسية</span></div>
+  <div class="navItem" id="servicesLink" data-href="#"><img src="../icons/services.svg"><span>خدماتنا</span></div>
+  <div class="navItem" id="worksLink" data-href="../Works/index.html"><img src="../icons/works.svg"><span>أعمالنا</span></div>
+  <div class="navItem" id="reviewsLink" data-href="../reviews/index.html"><img src="../icons/reviews.svg"><span>آراء العملاء</span></div>
+  <div class="navItem" id="contactLink" data-href="index.html"><img src="../icons/contact.svg"><span>خدمة العملاء</span></div>
+</aside>
+
+<div class="wrap">
+
+  <h1 style="text-align:center;color:var(--green);margin-bottom:20px;">
+    الأسئلة الشائعة
+  </h1>
+
+  <p style="text-align:center;color:var(--muted);margin-bottom:30px;">
+    هنا تجد إجابات سريعة لأكثر الأسئلة انتشارًا بين عملائنا
+  </p>
+
+  <!-- ===== FAQ LIST ===== -->
+  
+  <div class="faq-box">
+    <div class="question">
+      <span>هل يمكن تعديل الباقات أو حذف عناصر منها؟</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="answer">
+      نعم، يمكن تعديل أي باقة حسب احتياجات العميل سواء بالحذف أو الإضافة، ويتم تعديل السعر بناءً على التعديلات المطلوبة.
+    </div>
+  </div>
+
+  <div class="faq-box">
+    <div class="question">
+      <span>هل توفرون دعم فني بعد التسليم؟</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="answer">
+      نعم، نقدم دعم فني كامل خلال فترة التعاقد لمساعدتك في أي مشكلة أو استفسار.
+    </div>
+  </div>
+
+  <div class="faq-box">
+    <div class="question">
+      <span>كيف يتم التواصل معكم؟</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="answer">
+      يمكنك التواصل معنا عبر خدمة العملاء من خلال واتساب أو تيليجرام أو البريد الإلكتروني.
+    </div>
+  </div>
+
+  <div class="faq-box">
+    <div class="question">
+      <span>ما مدة تنفيذ الخدمات؟</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="answer">
+      تختلف مدة التنفيذ حسب نوع الخدمة، لكن في العادة يتم التسليم خلال 24 – 72 ساعة.
+    </div>
+  </div>
+
+  <div class="faq-box">
+    <div class="question">
+      <span>هل تعملون مع العملاء خارج مصر؟</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="answer">
+      نعم، نقدم خدماتنا لأي عميل من أي دولة دون أي مشكلة.
+    </div>
+  </div>
+
+  <!-- SOCIAL ICONS -->
+  <div class="social">
+    <img src="../icons/facebook.svg">
+    <img src="../icons/instagram.svg">
+    <img src="../icons/whatsapp.svg">
+    <img src="../icons/telegram.svg">
+  </div>
+
+</div>
+
+<script>
+// MENU
+document.getElementById('menuBtn').onclick = () =>{
+  document.getElementById('sidebar').classList.toggle('open');
+};
+
+document.querySelectorAll('.navItem').forEach(i=>{
+  i.onclick = ()=> location.href = i.dataset.href;
+});
+
+// FAQ
+document.querySelectorAll(".faq-box").forEach(box=>{
+  box.addEventListener("click",()=>{
+    box.classList.toggle("open");
+  });
+});
+
+document.getElementById("servicesLink").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const type = (localStorage.getItem("gmv_usertype") || "").toLowerCase();
+
+  let target = "../server-small/index.html";  // افتراضي
+
+  if (type.includes("براند"))       target = "../server-brand/index.html";
+  else if (type.includes("خارج") || type.includes("بره"))  
+                                   target = "../server-outside/index.html";
+
+  window.location.href = target;
+});
+document.getElementById("contactLink").addEventListener("click", () => {
+  window.location.href = "../contact/index.html";
+});
+document.getElementById("reviewsLink").addEventListener("click", () => {
+  window.location.href = "../reviews/index.html";
+});
+document.getElementById("worksLink").addEventListener("click", () => {
+  window.location.href = "../Works/index.html";
+});
+</script>
+
+</body>
+</html>

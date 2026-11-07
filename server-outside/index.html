@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>خدمات المحلات الصغيرة — GMV Media</title>
+  <meta name="description" content="باقات وخدمات GMV Media للمحلات الصغيرة" />
+  <style>
+    @font-face { font-family: 'GMVFont'; src: url('../GMVFont.ttf') format('truetype'); font-display: swap; }
+    :root{ --green:#00a33b; --black:#111; --muted:#6d6d6d; --bg-opacity:0.05; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'GMVFont',Arial,sans-serif;background:linear-gradient(135deg,#ffffff 0%,#9ce5b6 100%);color:var(--black);overflow-x:hidden;min-height:100vh;position:relative;}
+    body::before{content:'';position:fixed;inset:0;background-image:url('../logo.png');background-repeat:no-repeat;background-position:center;background-size:450px;opacity:var(--bg-opacity);z-index:1;pointer-events:none;filter:grayscale(1);}
+    .wrap{max-width:1200px;margin:0 auto;padding:28px;position:relative;z-index:2}
+    header{text-align:center;margin-bottom:30px}
+    h1{font-size:26px;color:var(--green);margin:20px 0;}
+    .menuBtn{position:fixed;right:18px;top:18px;background:#fff;border-radius:10px;padding:10px;border:1px solid #eee;cursor:pointer;z-index:2000}
+    .sidebar{position:fixed;right:-100%;top:0;width:340px;height:100%;background:rgba(0,0,0,.9);color:#fff;transition:.4s;z-index:1900;padding:30px;backdrop-filter:blur(6px)}
+    .sidebar.open{right:0}
+    .navItem{display:flex;align-items:center;gap:10px;padding:12px;border-radius:8px;cursor:pointer;transition:.2s}
+    .navItem:hover{background:rgba(255,255,255,.1)}
+    .navItem img{width:28px;filter:invert(1)}
+    .navItem span{font-weight:bold}
+
+    .grid{display:grid;grid-template-columns: repeat(2, 1fr); /* عمودين ثابت */gap: 16px;}
+    .card{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.08);cursor:pointer;background:#fff;}
+    .card img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+    .card:hover img{transform:scale(1.05);}
+
+    .dialog{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:3000;align-items:center;justify-content:center;flex-direction:column;}
+    .dialog img{max-width:90%;max-height:70%;border-radius:14px;margin-bottom:20px;box-shadow:0 10px 30px rgba(0,0,0,.6);}
+    .dialog button{background:var(--green);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-size:16px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.2);}
+    .dialog button:hover{transform:scale(1.05);}
+    .backBtn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: var(--green);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 2000;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+.backBtn:hover {
+  background: #008f34;
+}
+@media (max-width: 600px) {
+  .wrap {
+    padding: 10px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2, h3 {
+    font-size: 18px;
+  }
+
+  .socials a {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .masonry-item {
+    width: 100%;
+  }
+}
+.masonry-item img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+  </style>
+<style id="gmv-premium-refresh">
+:root{--gmv-green:#00a33b;--gmv-glass:rgba(255,255,255,.72)}
+body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.13),transparent 34%),radial-gradient(ellipse at 90% 78%,rgba(0,163,59,.09),transparent 35%),linear-gradient(135deg,#f8fbf9,#eaf5ee 55%,#f9fbfa)!important;background-attachment:fixed!important}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.28) 45%,transparent 60%);opacity:.55}
+.wrap{position:relative;z-index:2}
+.menuBtn{background:rgba(255,255,255,.78)!important;border:1px solid rgba(0,163,59,.18)!important;box-shadow:0 12px 34px rgba(0,40,15,.12)!important;backdrop-filter:blur(18px);border-radius:14px!important;transition:transform .25s,box-shadow .25s}
+.menuBtn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(0,163,59,.18)!important}
+.sidebar{background:linear-gradient(160deg,rgba(8,20,13,.96),rgba(14,37,24,.94))!important;border-left:1px solid rgba(0,163,59,.28);box-shadow:-24px 0 80px rgba(0,0,0,.22);backdrop-filter:blur(24px)!important;width:min(360px,88vw)!important;padding:30px 22px!important}
+.navItem{border:1px solid transparent;margin:7px 0;padding:14px 16px!important;border-radius:14px!important;transition:all .25s!important}
+.navItem:hover{background:linear-gradient(90deg,rgba(0,163,59,.24),rgba(255,255,255,.04))!important;border-color:rgba(0,163,59,.25);transform:translateX(-4px)}
+.logoFrame,.socials a,.visit,.feedbackCard,.offerCard,.scroller img{box-shadow:0 14px 38px rgba(7,45,20,.10)!important;border:1px solid rgba(0,163,59,.10);transition:transform .3s ease,box-shadow .3s ease}
+.logoFrame{background:rgba(255,255,255,.75)!important;backdrop-filter:blur(12px)}
+.scrollerContainer{scroll-behavior:smooth;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.scroller img:hover{transform:translateY(-5px) scale(1.025);box-shadow:0 20px 40px rgba(0,163,59,.18)!important}
+.titleRow h3,h1{ text-shadow:0 5px 20px rgba(0,163,59,.12)}
+.adminMediaPlaceholder{min-height:150px;width:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed rgba(0,163,59,.4);border-radius:18px;background:rgba(255,255,255,.48);color:#477257;backdrop-filter:blur(8px)}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a href="../index.html" class="backBtn">← الرجوع للرئيسية</a>
+  <div class="menuBtn" id="menuBtn">☰</div>
+  <aside class="sidebar" id="sidebar">
+  <div class="navItem" id="homeLink" data-href="../index.html"><img src="../icons/home.svg"><span>الرئيسية</span></div>
+  <div class="navItem" id="servicesLink" data-href="#"><img src="../icons/services.svg"><span>خدماتنا</span></div>
+  <div class="navItem" id="worksLink" data-href="../Works/index.html"><img src="../icons/works.svg"><span>أعمالنا</span></div>
+  <div class="navItem" id="reviewsLink" data-href="../reviews/index.html"><img src="../icons/reviews.svg"><span>آراء العملاء</span></div>
+  <div class="navItem" id="contactLink" data-href="index.html"><img src="../icons/contact.svg"><span>خدمة العملاء</span></div>
+</aside>
+
+  <main class="wrap">
+    <header>
+      <h1>باقات العملاء خارج مصر</h1>
+      <p style="color:var(--muted);font-size:14px;">اختر الباقة المناسبة لك واضغط للاستفسار مباشرة عبر واتساب</p>
+    </header>
+
+    <section class="grid" id="offersGrid">
+      <div class="card"><img src="1.webp" alt="باقة 1"></div>
+      <div class="card"><img src="2.webp" alt="باقة 2"></div>
+      <div class="card"><img src="3.webp" alt="باقة 3"></div>
+      <div class="card"><img src="4.webp" alt="باقة 4"></div>
+      <div class="card"><img src="5.webp" alt="باقة 5"></div>
+      <div class="card"><img src="6.webp" alt="باقة 6"></div>
+    </section>
+    <!-- ملاحظة في نهاية الصفحة -->
+    <div style="margin-top:30px;text-align:center;background:#e9fdf0;border:1px solid #b6e3c4;padding:14px 10px;border-radius:10px;color:var(--black);font-size:15px;line-height:1.6;">
+      💡 <strong>ملحوظة:</strong> يمكن للعميل تبديل أو خصم أي عنصر من عناصر الباقة حسب احتياجاته، وسيتم تعديل السعر وفقًا لذلك.
+    </div>
+  </main>
+
+  <div class="dialog" id="dialog">
+    <img id="dialogImg" src="" alt="">
+    <button id="whatsBtn">💬 استفسر عن هذه الباقة</button>
+  </div>
+
+  <script>
+    // القائمة الجانبية
+    document.getElementById('menuBtn').addEventListener('click',()=> {
+      document.getElementById('sidebar').classList.toggle('open');
+    });
+    document.querySelectorAll('.navItem').forEach(it=>{
+      it.addEventListener('click',()=> location.href = it.dataset.href);
+    });
+
+    // عرض الصور داخل نافذة
+    const dialog = document.getElementById('dialog');
+    const dialogImg = document.getElementById('dialogImg');
+    const whatsBtn = document.getElementById('whatsBtn');
+    const whatsappNumber = "201508280795";
+
+    document.querySelectorAll('.card img').forEach(img=>{
+      img.addEventListener('click', ()=>{
+        dialogImg.src = img.src;
+        dialog.style.display = 'flex';
+      });
+    });
+
+    dialog.addEventListener('click', e=>{
+      if(e.target === dialog) dialog.style.display='none';
+    });
+
+    whatsBtn.addEventListener('click', ()=>{
+      const msg = encodeURIComponent("Hello, I would like to inquire about this package (Outside Egypt client).");
+      window.open(`https://wa.me/${whatsappNumber}?text=${msg}`,'_blank');
+    });
+    document.getElementById("servicesLink").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const type = (localStorage.getItem("gmv_usertype") || "").toLowerCase();
+
+  let target = "../server-small/index.html";  // افتراضي
+
+  if (type.includes("براند"))       target = "../server-brand/index.html";
+  else if (type.includes("خارج") || type.includes("بره"))  
+                                   target = "../server-outside/index.html";
+
+  window.location.href = target;
+});
+document.getElementById("contactLink").addEventListener("click", () => {
+  window.location.href = "../contact/index.html";
+});
+document.getElementById("reviewsLink").addEventListener("click", () => {
+  window.location.href = "../reviews/index.html";
+});
+document.getElementById("worksLink").addEventListener("click", () => {
+  window.location.href = "../Works/index.html";
+});
+  </script>
+</body>
+</html>

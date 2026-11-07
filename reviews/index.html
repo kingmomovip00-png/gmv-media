@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>آراء العملاء — GMV Media</title>
+
+<style>
+@font-face {
+  font-family: 'GMVFont';
+  src: url('../GMVFont.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root{
+  --green:#00a33b;
+  --muted:#666;
+  --black:#111;
+  --bg-opacity:0.05;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'GMVFont',Arial;
+  background:linear-gradient(135deg,#ffffff 0%,#9ce5b6 100%);
+  color:var(--black);
+  overflow-x:hidden;
+  min-height:100vh;
+  position:relative;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url('../logo.png');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:450px;
+  opacity:var(--bg-opacity);
+  z-index:1;
+  pointer-events:none;
+  filter:grayscale(1);
+}
+
+.wrap{
+  max-width:1200px;
+  margin:auto;
+  padding:25px;
+  position:relative;
+  z-index:3;
+}
+
+/* MENU */
+.menuBtn{
+  position:fixed;
+  right:18px;
+  top:18px;
+  background:#fff;
+  border-radius:10px;
+  padding:10px;
+  border:1px solid #eee;
+  cursor:pointer;
+  z-index:2000;
+}
+
+.sidebar{
+  position:fixed;
+  right:-100%;
+  top:0;
+  width:330px;
+  height:100%;
+  background:rgba(0,0,0,.9);
+  color:#fff;
+  transition:.4s;
+  z-index:1900;
+  padding:30px;
+  backdrop-filter:blur(6px);
+}
+.sidebar.open{ right:0; }
+
+.navItem{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.navItem img{ width:28px; filter:invert(1); }
+
+/* Masonry layout */
+.masonry{ column-count:3; column-gap:14px; }
+@media(max-width:900px){ .masonry{column-count:2;} }
+
+.masonry-item{
+  break-inside:avoid;
+  margin-bottom:14px;
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+  cursor:pointer;
+}
+.masonry-item img{
+  width:100%;
+  display:block;
+}
+
+/* popup */
+#imgDialog{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  justify-content:center;
+  align-items:center;
+  z-index:4000;
+}
+#imgDialog img{
+  max-width:90%;
+  max-height:85%;
+  border-radius:14px;
+}
+
+/* feedback modal */
+#feedbackModal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  justify-content:center;
+  align-items:center;
+  z-index:5000;
+}
+.modalBox{
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  max-width:420px;
+  width:92%;
+  text-align:center;
+}
+.modalBox input,
+.modalBox textarea{
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+.modalBox button{
+  width:100%;
+  padding:10px;
+  border:none;
+  background:var(--green);
+  color:#fff;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.feedbackCard{
+  background:#fff;
+  margin-bottom:12px;
+  padding:12px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+.feedbackCard .name{
+  font-weight:bold;
+  color:var(--green);
+  font-size:16px;
+}
+.feedbackCard .time{
+  font-size:12px;
+  color:#777;
+  margin:3px 0 6px;
+}
+.feedbackCard .msg{
+  color:#333;
+  font-size:14px;
+}
+
+/* share btn */
+#openFeedback{
+  margin:20px auto;
+  display:block;
+  background:var(--green);
+  color:#fff;
+  padding:10px 16px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+}
+@media (max-width: 600px) {
+  .wrap {
+    padding: 10px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2, h3 {
+    font-size: 18px;
+  }
+
+  .socials a {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .masonry-item {
+    width: 100%;
+  }
+}
+.masonry-item img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+</style>
+<style id="gmv-premium-refresh">
+:root{--gmv-green:#00a33b;--gmv-glass:rgba(255,255,255,.72)}
+body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.13),transparent 34%),radial-gradient(ellipse at 90% 78%,rgba(0,163,59,.09),transparent 35%),linear-gradient(135deg,#f8fbf9,#eaf5ee 55%,#f9fbfa)!important;background-attachment:fixed!important}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.28) 45%,transparent 60%);opacity:.55}
+.wrap{position:relative;z-index:2}
+.menuBtn{background:rgba(255,255,255,.78)!important;border:1px solid rgba(0,163,59,.18)!important;box-shadow:0 12px 34px rgba(0,40,15,.12)!important;backdrop-filter:blur(18px);border-radius:14px!important;transition:transform .25s,box-shadow .25s}
+.menuBtn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(0,163,59,.18)!important}
+.sidebar{background:linear-gradient(160deg,rgba(8,20,13,.96),rgba(14,37,24,.94))!important;border-left:1px solid rgba(0,163,59,.28);box-shadow:-24px 0 80px rgba(0,0,0,.22);backdrop-filter:blur(24px)!important;width:min(360px,88vw)!important;padding:30px 22px!important}
+.navItem{border:1px solid transparent;margin:7px 0;padding:14px 16px!important;border-radius:14px!important;transition:all .25s!important}
+.navItem:hover{background:linear-gradient(90deg,rgba(0,163,59,.24),rgba(255,255,255,.04))!important;border-color:rgba(0,163,59,.25);transform:translateX(-4px)}
+.logoFrame,.socials a,.visit,.feedbackCard,.offerCard,.scroller img{box-shadow:0 14px 38px rgba(7,45,20,.10)!important;border:1px solid rgba(0,163,59,.10);transition:transform .3s ease,box-shadow .3s ease}
+.logoFrame{background:rgba(255,255,255,.75)!important;backdrop-filter:blur(12px)}
+.scrollerContainer{scroll-behavior:smooth;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.scroller img:hover{transform:translateY(-5px) scale(1.025);box-shadow:0 20px 40px rgba(0,163,59,.18)!important}
+.titleRow h3,h1{ text-shadow:0 5px 20px rgba(0,163,59,.12)}
+.adminMediaPlaceholder{min-height:150px;width:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed rgba(0,163,59,.4);border-radius:18px;background:rgba(255,255,255,.48);color:#477257;backdrop-filter:blur(8px)}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+
+<body>
+
+<div class="menuBtn" id="menuBtn">☰</div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="navItem" id="homeLink" data-href="../index.html"><img src="../icons/home.svg"><span>الرئيسية</span></div>
+  <div class="navItem" id="servicesLink" data-href="#"><img src="../icons/services.svg"><span>خدماتنا</span></div>
+  <div class="navItem" id="worksLink" data-href="../Works/index.html"><img src="../icons/works.svg"><span>أعمالنا</span></div>
+  <div class="navItem" id="reviewsLink" data-href="../reviews/index.html"><img src="../icons/reviews.svg"><span>آراء العملاء</span></div>
+  <div class="navItem" id="contactLink" data-href="index.html"><img src="../icons/contact.svg"><span>خدمة العملاء</span></div>
+</aside>
+
+<div class="wrap">
+
+  <h1 style="text-align:center;color:var(--green);margin-bottom:15px">آراء عملائنا</h1>
+  <p style="text-align:center;color:var(--muted);margin-top:0;margin-bottom:25px;font-size:15px;">
+  رأي عملائنا وكلامهم عن شغل GMV Media
+</p>
+
+  <!-- Masonry Grid (Design Images) -->
+  <div class="masonry" id="masonryGrid"></div>
+
+  <button id="openFeedback">شارك رأيك فينا</button>
+
+  <div id="feedbackList"></div>
+
+</div>
+
+<!-- Image dialog -->
+<div id="imgDialog"><img id="dialogImage"></div>
+
+<!-- Feedback modal -->
+<div id="feedbackModal">
+  <div class="modalBox">
+    <h3 style="margin-top:0;color:var(--green)">شارك رأيك</h3>
+    <input id="fbName" placeholder="اسمك" />
+    <textarea id="fbMsg" placeholder="اكتب رأيك..."></textarea>
+    <button id="sendFeedback">إرسال</button>
+  </div>
+</div>
+
+<script type="module">
+/* ===== Firebase ===== */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getDatabase, ref, push, onChildAdded, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAq8CVFxYPWAa9HBVSSz6NrEcek_UVf2QM",
+  authDomain: "gmv-media.firebaseapp.com",
+  databaseURL: "https://gmv-media-default-rtdb.firebaseio.com",
+  projectId: "gmv-media",
+  storageBucket: "gmv-media.firebasestorage.app",
+  messagingSenderId: "316734655967",
+  appId: "1:316734655967:web:3ca0582c8b6c9db835086a"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+/* ========== SIDEBAR ========== */
+menuBtn.onclick = ()=> sidebar.classList.toggle('open');
+
+document.querySelectorAll('.navItem').forEach(i=>{
+  i.onclick = ()=> {
+    const to = i.dataset.href;
+    if(to) location.href = to;
+  };
+});
+
+/* ===== خدماتنا dynamic link ===== */
+document.getElementById("servicesLink").onclick = ()=>{
+  const type = (localStorage.getItem("gmv_usertype") || "").toLowerCase();
+  let target = "../server-small/index.html";
+
+  if(type.includes("براند")) target="../server-brand/index.html";
+  else if(type.includes("خارج")) target="../server-outside/index.html";
+
+  location.href = target;
+};
+
+/* ===== Load design images ===== */
+const masonry = document.getElementById("masonryGrid");
+
+for(let i=1;i<=2;i++){
+  const div = document.createElement("div");
+  div.className = "masonry-item";
+  div.innerHTML = `<img src="designs/${i}.webp" alt="designs ${i}">`;
+  masonry.appendChild(div);
+}
+
+/* ===== Image popup ===== */
+const imgDialog=document.getElementById("imgDialog");
+const dialogImage=document.getElementById("dialogImage");
+
+document.addEventListener("click",e=>{
+  const img=e.target.closest(".masonry-item img");
+  if(img){
+    dialogImage.src=img.src;
+    imgDialog.style.display="flex";
+    return;
+  }
+  if(e.target===imgDialog){
+    imgDialog.style.display="none";
+  }
+});
+
+/* ===== Feedback Modal ===== */
+const feedbackModal=document.getElementById("feedbackModal");
+openFeedback.onclick=()=>{ feedbackModal.style.display="flex"; };
+feedbackModal.onclick=e=>{ if(e.target===feedbackModal) feedbackModal.style.display="none"; };
+
+/* ===== Send feedback ===== */
+sendFeedback.onclick=async ()=>{
+  const name = fbName.value.trim();
+  const msg  = fbMsg.value.trim();
+
+  if(!name || !msg){
+    alert("اكتب البيانات كاملة");
+    return;
+  }
+
+  const payload = {
+    name,
+    msg,
+    time: new Date().toLocaleString()
+  };
+
+  await push(ref(db,"feedbacks"), payload);
+
+  fbName.value="";
+  fbMsg.value="";
+  feedbackModal.style.display="none";
+};
+
+/* ===== Load feedbacks ===== */
+const feedbackList=document.getElementById("feedbackList");
+
+onChildAdded(ref(db,"feedbacks"), snap=>{
+  const v=snap.val();
+  const card=document.createElement("div");
+  card.className="feedbackCard";
+  card.innerHTML=`
+    <div class="name">${v.name}</div>
+    <div class="time">${v.time}</div>
+    <div class="msg">${v.msg}</div>
+  `;
+  feedbackList.prepend(card);
+});
+
+document.getElementById("servicesLink").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const type = (localStorage.getItem("gmv_usertype") || "").toLowerCase();
+
+  let target = "../server-small/index.html";  // افتراضي
+
+  if (type.includes("براند"))       target = "../server-brand/index.html";
+  else if (type.includes("خارج") || type.includes("بره"))  
+                                   target = "../server-outside/index.html";
+
+  window.location.href = target;
+});
+document.getElementById("contactLink").addEventListener("click", () => {
+  window.location.href = "../contact/index.html";
+});
+document.getElementById("reviewsLink").addEventListener("click", () => {
+  window.location.href = "../reviews/index.html";
+});
+document.getElementById("worksLink").addEventListener("click", () => {
+  window.location.href = "../Works/index.html";
+});
+</script>
+</body>
+</html>

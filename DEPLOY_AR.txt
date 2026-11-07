@@ -1,0 +1,15 @@
+GMV MEDIA — VERCEL / ADMIN SETUP
+
+1) npm install
+2) Add .env values locally or set the same variables in Vercel Project Settings > Environment Variables.
+3) Set FIREBASE_SERVICE_ACCOUNT_BASE64 to base64(service-account.json). Never commit the service account JSON.
+4) Create Firebase Authentication admin user(s) with email/password. Put their emails in ADMIN_EMAILS.
+5) ImageKit: add IMAGEKIT_PUBLIC_KEY, IMAGEKIT_PRIVATE_KEY and IMAGEKIT_URL_ENDPOINT.
+6) Firebase Realtime Database rules must protect admin writes. Client admin authentication alone is not sufficient; rules should require auth and admin claim/email.
+7) Deploy to Vercel. Use /admin/ for admin panel.
+
+IMPORTANT: GMV Firebase client config (apiKey/authDomain/databaseURL/projectId/storageBucket/messagingSenderId/appId) is public client configuration and retained for existing app connectivity. It is not a service-account secret.
+
+SECURITY: A Telegram bot token was embedded in the original website source. Revoke it in BotFather and generate a fresh one. The token is intentionally removed from this package; store the new token only in Vercel environment variables.
+
+MEDIA: Portfolio images, offer images and videos have been removed from this package to keep it lightweight. Upload them through /admin/ after ImageKit is configured. The original logo, font, and SVG icons remain.
