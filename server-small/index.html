@@ -6,7 +6,7 @@
   <title>خدمات المحلات الصغيرة — GMV Media</title>
   <meta name="description" content="باقات وخدمات GMV Media للمحلات الصغيرة" />
   <style>
-    @font-face { font-family: 'GMVFont'; src: url('../GMVFont.ttf') format('truetype'); font-display: swap; }
+    @font-face { font-family: 'GMVFont'; src: url('../gmvfont.ttf') format('truetype'); font-display: swap; }
     :root{ --green:#00a33b; --black:#111; --muted:#6d6d6d; --bg-opacity:0.05; }
     *{box-sizing:border-box}
     body{margin:0;font-family:'GMVFont',Arial,sans-serif;background:linear-gradient(135deg,#ffffff 0%,#9ce5b6 100%);color:var(--black);overflow-x:hidden;min-height:100vh;position:relative;}
@@ -76,24 +76,7 @@
   max-width: 100%;
 }
   </style>
-<style id="gmv-premium-refresh">
-:root{--gmv-green:#00a33b;--gmv-glass:rgba(255,255,255,.72)}
-body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.13),transparent 34%),radial-gradient(ellipse at 90% 78%,rgba(0,163,59,.09),transparent 35%),linear-gradient(135deg,#f8fbf9,#eaf5ee 55%,#f9fbfa)!important;background-attachment:fixed!important}
-body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.28) 45%,transparent 60%);opacity:.55}
-.wrap{position:relative;z-index:2}
-.menuBtn{background:rgba(255,255,255,.78)!important;border:1px solid rgba(0,163,59,.18)!important;box-shadow:0 12px 34px rgba(0,40,15,.12)!important;backdrop-filter:blur(18px);border-radius:14px!important;transition:transform .25s,box-shadow .25s}
-.menuBtn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(0,163,59,.18)!important}
-.sidebar{background:linear-gradient(160deg,rgba(8,20,13,.96),rgba(14,37,24,.94))!important;border-left:1px solid rgba(0,163,59,.28);box-shadow:-24px 0 80px rgba(0,0,0,.22);backdrop-filter:blur(24px)!important;width:min(360px,88vw)!important;padding:30px 22px!important}
-.navItem{border:1px solid transparent;margin:7px 0;padding:14px 16px!important;border-radius:14px!important;transition:all .25s!important}
-.navItem:hover{background:linear-gradient(90deg,rgba(0,163,59,.24),rgba(255,255,255,.04))!important;border-color:rgba(0,163,59,.25);transform:translateX(-4px)}
-.logoFrame,.socials a,.visit,.feedbackCard,.offerCard,.scroller img{box-shadow:0 14px 38px rgba(7,45,20,.10)!important;border:1px solid rgba(0,163,59,.10);transition:transform .3s ease,box-shadow .3s ease}
-.logoFrame{background:rgba(255,255,255,.75)!important;backdrop-filter:blur(12px)}
-.scrollerContainer{scroll-behavior:smooth;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
-.scroller img:hover{transform:translateY(-5px) scale(1.025);box-shadow:0 20px 40px rgba(0,163,59,.18)!important}
-.titleRow h3,h1{ text-shadow:0 5px 20px rgba(0,163,59,.12)}
-.adminMediaPlaceholder{min-height:150px;width:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed rgba(0,163,59,.4);border-radius:18px;background:rgba(255,255,255,.48);color:#477257;backdrop-filter:blur(8px)}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-</style>
+<style id="gmv-premium-layer">body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.16),transparent 34%),radial-gradient(ellipse at 88% 42%,rgba(0,163,59,.12),transparent 38%),linear-gradient(135deg,#f8fcf9,#e8f7ed 55%,#f7fbf8)!important;background-attachment:fixed!important}body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.22;background-image:radial-gradient(rgba(0,110,43,.12) .7px,transparent .7px);background-size:22px 22px}.menuBtn{border-radius:15px!important;background:rgba(255,255,255,.82)!important;backdrop-filter:blur(16px);box-shadow:0 12px 35px rgba(0,70,25,.12);transition:.25s}.menuBtn:hover{transform:translateY(-3px)}.sidebar{background:linear-gradient(155deg,rgba(10,24,16,.97),rgba(5,44,23,.94))!important;backdrop-filter:blur(24px)!important;box-shadow:-25px 0 70px rgba(0,0,0,.2)}.navItem{border-radius:14px!important;transition:all .25s!important}.navItem:hover{background:rgba(0,163,59,.2)!important;transform:translateX(-4px)}button,.filter button{transition:transform .22s,box-shadow .22s,background .22s}button:hover,.filter button:hover{transform:translateY(-2px)}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}</style>
 </head>
 <body>
 <a href="../index.html" class="backBtn">← الرجوع للرئيسية</a>
@@ -101,7 +84,7 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;backg
   <aside class="sidebar" id="sidebar">
   <div class="navItem" id="homeLink" data-href="../index.html"><img src="../icons/home.svg"><span>الرئيسية</span></div>
   <div class="navItem" id="servicesLink" data-href="#"><img src="../icons/services.svg"><span>خدماتنا</span></div>
-  <div class="navItem" id="worksLink" data-href="../Works/index.html"><img src="../icons/works.svg"><span>أعمالنا</span></div>
+  <div class="navItem" id="worksLink" data-href="../works/index.html"><img src="../icons/works.svg"><span>أعمالنا</span></div>
   <div class="navItem" id="reviewsLink" data-href="../reviews/index.html"><img src="../icons/reviews.svg"><span>آراء العملاء</span></div>
   <div class="navItem" id="contactLink" data-href="index.html"><img src="../icons/contact.svg"><span>خدمة العملاء</span></div>
 </aside>
@@ -181,7 +164,7 @@ document.getElementById("reviewsLink").addEventListener("click", () => {
   window.location.href = "../reviews/index.html";
 });
 document.getElementById("worksLink").addEventListener("click", () => {
-  window.location.href = "../Works/index.html";
+  window.location.href = "../works/index.html";
 });
   </script>
 </body>

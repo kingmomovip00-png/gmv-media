@@ -6,7 +6,7 @@
   <title>GMV Media — الرئيسية</title>
   <meta name="description" content="GMV Media - شركه دعايه وتسويق" />
   <style>
-    @font-face { font-family: 'GMVFont'; src: url('GMVFont.ttf') format('truetype'); font-display: swap; }
+    @font-face { font-family: 'GMVFont'; src: url('gmvfont.ttf') format('truetype'); font-display: swap; }
     :root{ --green:#00a33b; --black:#111; --muted:#6d6d6d; --bg-opacity:0.04; }
     *{box-sizing:border-box}
     body{margin:0;font-family:'GMVFont',Arial,sans-serif;background:linear-gradient(135deg,#ffffff 0%,#9ce5b6 100%);color:var(--black);overflow-x:hidden;min-height:100vh;position:relative;}
@@ -91,24 +91,18 @@
   height: auto;
   max-width: 100%;
 }
-  </style>
-<style id="gmv-premium-refresh">
-:root{--gmv-green:#00a33b;--gmv-glass:rgba(255,255,255,.72)}
-body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.13),transparent 34%),radial-gradient(ellipse at 90% 78%,rgba(0,163,59,.09),transparent 35%),linear-gradient(135deg,#f8fbf9,#eaf5ee 55%,#f9fbfa)!important;background-attachment:fixed!important}
-body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.28) 45%,transparent 60%);opacity:.55}
-.wrap{position:relative;z-index:2}
-.menuBtn{background:rgba(255,255,255,.78)!important;border:1px solid rgba(0,163,59,.18)!important;box-shadow:0 12px 34px rgba(0,40,15,.12)!important;backdrop-filter:blur(18px);border-radius:14px!important;transition:transform .25s,box-shadow .25s}
-.menuBtn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(0,163,59,.18)!important}
-.sidebar{background:linear-gradient(160deg,rgba(8,20,13,.96),rgba(14,37,24,.94))!important;border-left:1px solid rgba(0,163,59,.28);box-shadow:-24px 0 80px rgba(0,0,0,.22);backdrop-filter:blur(24px)!important;width:min(360px,88vw)!important;padding:30px 22px!important}
-.navItem{border:1px solid transparent;margin:7px 0;padding:14px 16px!important;border-radius:14px!important;transition:all .25s!important}
-.navItem:hover{background:linear-gradient(90deg,rgba(0,163,59,.24),rgba(255,255,255,.04))!important;border-color:rgba(0,163,59,.25);transform:translateX(-4px)}
-.logoFrame,.socials a,.visit,.feedbackCard,.offerCard,.scroller img{box-shadow:0 14px 38px rgba(7,45,20,.10)!important;border:1px solid rgba(0,163,59,.10);transition:transform .3s ease,box-shadow .3s ease}
-.logoFrame{background:rgba(255,255,255,.75)!important;backdrop-filter:blur(12px)}
-.scrollerContainer{scroll-behavior:smooth;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
-.scroller img:hover{transform:translateY(-5px) scale(1.025);box-shadow:0 20px 40px rgba(0,163,59,.18)!important}
-.titleRow h3,h1{ text-shadow:0 5px 20px rgba(0,163,59,.12)}
-.adminMediaPlaceholder{min-height:150px;width:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed rgba(0,163,59,.4);border-radius:18px;background:rgba(255,255,255,.48);color:#477257;backdrop-filter:blur(8px)}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  
+/* GMV Premium visual layer — original green identity, logo, icons and font retained */
+:root{--green:#00a33b;--ink:#101713;--line:rgba(0,163,59,.14)}
+body{background:radial-gradient(ellipse at 12% 8%,rgba(0,163,59,.16),transparent 34%),radial-gradient(ellipse at 88% 42%,rgba(0,163,59,.12),transparent 38%),linear-gradient(135deg,#f8fcf9 0%,#e8f7ed 52%,#f7fbf8 100%);background-attachment:fixed}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.28;background-image:radial-gradient(rgba(0,110,43,.12) .7px,transparent .7px);background-size:22px 22px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
+.wrap{max-width:1280px;padding:34px 28px}.menuBtn{width:52px;height:52px;display:grid;place-items:center;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.8);backdrop-filter:blur(18px);box-shadow:0 12px 35px rgba(0,70,25,.12);font-size:22px;transition:.25s}.menuBtn:hover{transform:translateY(-3px)}
+.sidebar{right:-390px;width:min(360px,88vw);padding:30px 22px;background:linear-gradient(155deg,rgba(10,24,16,.97),rgba(5,44,23,.94));border-left:1px solid rgba(255,255,255,.12);box-shadow:-25px 0 70px rgba(0,0,0,.2);backdrop-filter:blur(24px);transition:right .42s cubic-bezier(.2,.8,.2,1)}.sidebar.open{right:0}.sidebar::before{content:"GMV";display:block;font:800 30px Arial,sans-serif;letter-spacing:5px;color:#fff;margin:12px 12px 34px}.navItem{padding:15px 14px;margin:7px 0;border:1px solid transparent;border-radius:14px;color:rgba(255,255,255,.85);transition:all .25s}.navItem:hover{background:rgba(0,163,59,.2);border-color:rgba(95,230,145,.2);transform:translateX(-4px);color:#fff}.navItem img{width:23px;height:23px}
+.logoFrame{width:148px;height:148px;background:rgba(255,255,255,.78);border:1px solid #fff;box-shadow:0 22px 60px rgba(0,90,35,.15),inset 0 1px 0 #fff;backdrop-filter:blur(15px);animation:gmvFloat 5s ease-in-out infinite}@keyframes gmvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.socials a,.offerCard,.feedbackCard,.visit{border:1px solid rgba(255,255,255,.9);background:rgba(255,255,255,.7);backdrop-filter:blur(14px);box-shadow:0 12px 35px rgba(0,75,28,.07);transition:transform .28s,box-shadow .28s}.socials a:hover,.offerCard:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(0,75,28,.15)}
+.section{padding:20px;border:1px solid rgba(255,255,255,.82);border-radius:24px;background:rgba(255,255,255,.43);backdrop-filter:blur(12px);box-shadow:0 18px 55px rgba(0,75,28,.055);margin-top:30px}.titleRow h3{font-size:22px}.scrollerContainer{padding:6px 0;cursor:grab;touch-action:pan-y}.scrollerContainer:active{cursor:grabbing}.scroller{width:max-content;will-change:transform;gap:14px}.scroller img,.scroller video{width:260px;height:178px;object-fit:cover;border-radius:17px;box-shadow:0 12px 28px rgba(0,0,0,.1);transition:transform .3s}.scroller img:hover{transform:translateY(-5px) scale(1.015)}.gallery-empty{padding:24px 16px;color:#66816f}.marquee-controls button{border:1px solid var(--line);background:rgba(255,255,255,.8);border-radius:11px;padding:7px 12px;color:var(--green);cursor:pointer}.section{animation:gmvReveal .7s both}@keyframes gmvReveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.wrap{padding:12px}.section{padding:13px;border-radius:18px}.scroller img,.scroller video{width:205px;height:145px}.logoFrame{width:122px;height:122px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
 </style>
 </head>
 <body>
@@ -138,20 +132,30 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;backg
         <a href="https://wa.me/+201508280795" title="WhatsApp"><img src="icons/whatsapp.svg" alt="whatsapp"></a>
       </div>
 
-      <section class="offersWrap" id="offersWrap"><div class="adminMediaPlaceholder">عروضنا الجديدة قريبًا</div></section>
+      <section class="offersWrap" id="offersWrap">
+        <div class="offerCard" id="offer1"><div class="offerOverlay">عرض مميز</div><img src="offers/offer1.jpg" class="active" alt="offer1"><img src="offers/offer2.jpg" alt="offer2"></div>
+        <div class="offerCard" id="offer2"><div class="offerOverlay">خصم حصري</div><img src="offers/offer2.jpg" class="active" alt="offer2b"><img src="offers/offer1.jpg" alt="offer1b"></div>
+      </section>
     </header>
 
     <section class="section">
-      <div class="titleRow"><h3>أعمالنا</h3></div>
+      <div class="titleRow"><h3>أعمالنا</h3><div class="marquee-controls"><button type="button" id="marqueeToggle">إيقاف الحركة</button></div></div>
       <div class="scrollerContainer">
-  <div class="scroller" id="worksScroller"><div class="adminMediaPlaceholder">سيتم عرض أعمالنا هنا بعد رفعها من لوحة الإدارة</div></div>
+  <div class="scroller" id="worksScroller">
+    <p class="gallery-empty">قريبًا — أعمالنا الجديدة</p>
+  </div>
 </div>
     </section>
 
     <section class="section">
       <div class="titleRow"><h3>آراء عملائنا</h3></div>
       <div class="scrollerContainer">
-  <div class="scroller" id="reviewsScroller"><div class="adminMediaPlaceholder">سيتم عرض آراء العملاء هنا بعد رفعها من لوحة الإدارة</div></div>
+  <div class="scroller" id="reviewsScroller">
+    <img src="r1.webp" alt="review 1">
+    <img src="r2.webp" alt="review 2">
+    <img src="r3.webp" alt="review 3">
+    <img src="r4.webp" alt="review 4">
+  </div>
 </div>
       <button id="openFeedback" aria-haspopup="dialog">شارك رأيك فينا</button>
 
@@ -211,8 +215,8 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;backg
 
     // ------ Telegram (you gave these) ------
     // ⚠️ These values will be visible in the page source if you deploy this file.
-    const TELEGRAM_BOT_TOKEN = "";
-    const TELEGRAM_CHAT_ID  = "";
+    const TELEGRAM_BOT_TOKEN = "8438555430:AAGH0A1d-CjJzYp8dDBVZvO4OV0x2NFjIhM";
+    const TELEGRAM_CHAT_ID  = "7056197961";
 
     // (Optional) If you still want Apps Script calls for anything, put URL here; otherwise leave null.
     const SHEET_WEBAPP_URL = null;
@@ -344,7 +348,6 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;backg
       // ⚠️ Warning: sending from client exposes the token in network requests & source code.
       // If Telegram blocks CORS or you want secure setup, use a server (Apps Script or Cloud Function).
       try {
-        if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return false;
         const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
         const body = { chat_id: TELEGRAM_CHAT_ID, text, parse_mode: "HTML" };
         const res = await fetch(url, {
@@ -617,14 +620,12 @@ dialog.addEventListener("click", (e) => {
     document.body.style.overflow = "";
   }
 });
-  
-// Admin-managed media galleries + infinite horizontal marquee
-const marqueeEls=[document.getElementById('worksScroller'),document.getElementById('reviewsScroller')].filter(Boolean);
-let marqueeEnabled=true,marqueeSpeed=35,dragging=false,lastX=0;
-function setGallery(el,items){if(!el)return;el.innerHTML='';const filtered=items.filter(x=>x&&x.url&&x.type!=='video');if(!filtered.length){el.innerHTML='<div class="adminMediaPlaceholder">المحتوى هيتضاف قريبًا من لوحة الإدارة</div>';return;}const add=()=>filtered.forEach(item=>{const im=document.createElement('img');im.src=item.url;im.alt=item.title||'GMV portfolio';im.loading='lazy';im.draggable=false;el.appendChild(im)});add();add();}
-onValue(ref(db,'gmvAssets'),snap=>{const all=Object.values(snap.val()||{});setGallery(document.getElementById('worksScroller'),all.filter(x=>x.category==='works'));setGallery(document.getElementById('reviewsScroller'),all.filter(x=>x.category==='reviews'));});
-onValue(ref(db,'gmvSettings'),snap=>{const cfg=snap.val()||{};marqueeEnabled=cfg.motion!==false;marqueeSpeed=Math.max(10,Number(cfg.speed)||35);});
-marqueeEls.forEach(el=>{let raf;function tick(){if(marqueeEnabled&&!dragging&&el.scrollWidth>el.clientWidth){el.scrollLeft += marqueeSpeed/100;if(Math.abs(el.scrollLeft)>=el.scrollWidth/2)el.scrollLeft=0;}raf=requestAnimationFrame(tick)}tick();el.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;el.setPointerCapture?.(e.pointerId)});el.addEventListener('pointermove',e=>{if(dragging){el.scrollLeft-=e.clientX-lastX;lastX=e.clientX}});['pointerup','pointercancel','pointerleave'].forEach(ev=>el.addEventListener(ev,()=>dragging=false));el.addEventListener('mouseenter',()=>dragging=true);el.addEventListener('mouseleave',()=>dragging=false);});
+  </script>
+<script>
+(()=>{const track=document.getElementById('worksScroller'),view=track?.parentElement,toggle=document.getElementById('marqueeToggle');if(!track||!view)return;let running=true,offset=0,last=0,speed=34,direction=1,drag=false,startX=0,startOffset=0;
+async function init(){try{const [sr,mr]=await Promise.all([fetch('/api/public/settings'),fetch('/api/public/media?type=work')]);if(sr.ok){const s=await sr.json();speed=Math.max(8,Math.min(100,+s.speed||34));direction=s.direction==='ltr'?-1:1;running=s.mode!=='static'}if(mr.ok){const d=await mr.json();if(d.items?.length){track.innerHTML=d.items.map(x=>x.type==='video'?`<video src="${x.url}" muted loop playsinline autoplay></video>`:`<img src="${x.url}" alt="${(x.title||'عمل GMV').replace(/"/g,'&quot;')}" loading="lazy">`).join('');[...track.children].forEach(n=>track.append(n.cloneNode(true)))}}}catch(e){}toggle.textContent=running?'إيقاف الحركة':'تشغيل الحركة';requestAnimationFrame(frame)}
+function frame(t){if(!last)last=t;let dt=Math.min(40,t-last);last=t;if(running&&!drag&&track.scrollWidth>view.clientWidth){offset-=direction*speed*dt/1000;let half=track.scrollWidth/2;if(offset<=-half)offset=0;if(offset>0)offset=-half;track.style.transform=`translateX(${offset}px)`}requestAnimationFrame(frame)}
+toggle?.addEventListener('click',()=>{running=!running;toggle.textContent=running?'إيقاف الحركة':'تشغيل الحركة'});view.addEventListener('pointerdown',e=>{drag=true;startX=e.clientX;startOffset=offset;view.setPointerCapture?.(e.pointerId)});view.addEventListener('pointermove',e=>{if(drag){offset=startOffset+e.clientX-startX;track.style.transform=`translateX(${offset}px)`}});['pointerup','pointercancel','pointerleave'].forEach(n=>view.addEventListener(n,()=>drag=false));init()})();
 </script>
 </body>
 </html>
