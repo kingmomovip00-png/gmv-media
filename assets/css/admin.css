@@ -7,14 +7,14 @@ body{animation:none}
 .login h1{font-family:var(--display);font-weight:400;margin:10px 0 6px;font-size:30px}
 .login p{color:var(--tx2);margin:0 0 20px;font-size:14.5px}
 .login form{text-align:start}
-.login__logo{width:96px;height:96px;margin:0 auto;display:grid;place-items:center;border-radius:28px;background:var(--card2);border:1px solid var(--line)}
-.login__logo.gate{color:var(--g)}.login__logo.gate svg{width:42px;height:42px}
+.login__logo{margin:0 auto 6px;display:grid;place-items:center}.login__logo img{width:180px;height:auto}
+.login__logo.gate{width:84px;height:84px;border-radius:26px;background:var(--card2);border:1px solid var(--line);color:var(--g)}.login__logo.gate svg{width:40px;height:40px}
 .err{color:#ff8b8b;font-weight:700;font-size:14px;margin:0 0 12px;text-align:center}
 .link{display:block;margin:14px auto 0;background:none;border:0;color:var(--tx2);text-decoration:underline;font-size:14px}
 .uid{display:block;margin:12px 0;padding:12px;border-radius:12px;background:#000;border:1px solid var(--line);color:var(--g3);word-break:break-all;font-size:13px;user-select:all}
 .adm__top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
 .adm__brand{display:flex;align-items:center;gap:12px}
-.adm__brand img{width:44px;height:44px;border-radius:13px;background:var(--card2);border:1px solid var(--line);padding:3px}
+.adm__brand img{width:auto;height:38px}
 .adm__brand b{display:block;font-family:var(--display);font-weight:400;font-size:20px;line-height:1.2}
 .adm__brand small{color:var(--mu);font-size:12px}
 .adm__top-r{display:flex;gap:8px}

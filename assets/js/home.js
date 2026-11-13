@@ -1,4 +1,4 @@
-import { $, $$, reveal, arrows, CATS, getCat, hasCat, setCat, makeModal, openModal, closeModal, icon, socialsHTML, counter, toast, store, BASE } from './site.js';
+import { $, $$, reveal, arrows, CATS, getCat, hasCat, setCat, askCat, socialsHTML, counter, toast, store, BASE } from './site.js';
 import { loadRemote, buildAll, mountSlot, gallery, scroller, DB_URL } from './media.js';
 import { initFeedback } from './feedback.js';
 
@@ -33,15 +33,7 @@ remote.late?.then(r => render(buildAll(r)));
 initFeedback({ openBtn: '#openFeedback', listEl: $('#feedbackList'), limit: 9 });
 
 /* ---- اختيار نوع النشاط (أول زيارة) ---- */
-if (!hasCat()) {
-  const m = makeModal('typeModal', `<h3>اختار نوع نشاطك</h3><p>عشان نعرضلك الباقات والأسعار المناسبة ليك.</p>
-    <div class="opts">${CATS.map((c, i) => `<button class="opt" type="button" data-i="${i}"><span class="opt__i">${icon(c.icon)}</span><span><b>${c.label}</b><small>${c.hint}</small></span></button>`).join('')}</div>`);
-  setTimeout(() => { if (!hasCat()) openModal(m); }, 900);
-  m.addEventListener('click', e => {
-    const b = e.target.closest('.opt'); if (!b) return;
-    const cat = CATS[b.dataset.i]; setCat(cat); closeModal(m); toast(`تمام — هنعرضلك باقات ${cat.label}`);
-  });
-}
+if (!hasCat()) setTimeout(() => { if (!hasCat()) askCat(); }, 900);
 
 /* ---- عدّاد الزوار + تسجيل الزائر الجديد ---- */
 fetch(`${DB_URL}/stats/visitors.json`).then(r => r.json()).then(n => {

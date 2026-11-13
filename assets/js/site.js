@@ -83,15 +83,15 @@ const navHTML = () => navItems().map(([id, ic, t, s, href], i) =>
 let drawer, burger, lastFocus;
 function buildChrome() {
   document.body.insertAdjacentHTML('afterbegin', `
-  <div class="bg" aria-hidden="true"><i class="bg__a"></i><i class="bg__b"></i><i class="bg__grid"></i><img class="bg__logo" src="${BASE}assets/img/logo-512.webp" alt="" width="512" height="512"></div>
+  <div class="bg" aria-hidden="true"><i class="bg__a"></i><i class="bg__b"></i><i class="bg__grid"></i><img class="bg__logo" src="${BASE}assets/img/logo.webp" alt="" width="1000" height="429"></div>
   <header class="topbar" id="topbar">
     <button class="burger" id="burger" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
-    <a class="topbar__logo" href="${homeHref}" aria-label="GMV Media — الرئيسية"><img src="${BASE}assets/img/logo-512.webp" alt="GMV Media" width="44" height="44"></a>
+    <a class="topbar__logo" href="${homeHref}" aria-label="GMV Media — الرئيسية"><img src="${BASE}assets/img/logo-sm.webp" alt="GMV Media" width="84" height="36"></a>
   </header>
   <div class="scrim" id="scrim"></div>
   <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="القائمة الرئيسية" inert>
     <div class="drawer__head">
-      <a class="drawer__brand" href="${homeHref}"><img src="${BASE}assets/img/logo-512.webp" alt="" width="54" height="54"><span><b>GMV Media</b><small>دعاية وتسويق</small></span></a>
+      <a class="drawer__brand" href="${homeHref}" aria-label="GMV Media"><img src="${BASE}assets/img/logo-sm.webp" alt="GMV Media" width="130" height="56"></a>
       <button class="iconbtn" type="button" data-close aria-label="إغلاق القائمة">${icon('close')}</button>
     </div>
     <nav class="drawer__nav" aria-label="التنقل">${navHTML()}</nav>
@@ -180,6 +180,21 @@ export function makeModal(id, inner) {
   document.body.append(m);
   m.addEventListener('click', e => { if (e.target === m || e.target.closest('[data-close]')) closeModal(m); });
   return m;
+}
+
+
+/* ---------- اختيار نوع النشاط (مودال مشترك) ---------- */
+export function askCat(onPick) {
+  let m = $('#typeModal');
+  if (!m) {
+    m = makeModal('typeModal', `<h3>اختار نوع نشاطك</h3><p>عشان نعرضلك الباقات والأسعار المناسبة ليك.</p>
+      <div class="opts">${CATS.map((c, i) => `<button class="opt" type="button" data-i="${i}"><span class="opt__i">${icon(c.icon)}</span><span><b>${c.label}</b><small>${c.hint}</small></span></button>`).join('')}</div>`);
+    m.addEventListener('click', e => {
+      const b = e.target.closest('.opt'); if (!b) return;
+      const cat = CATS[b.dataset.i]; setCat(cat); closeModal(m); toast(`تمام — هنعرضلك باقات ${cat.label}`); m._cb?.(cat);
+    });
+  }
+  m._cb = onPick; openModal(m);
 }
 
 /* ---------- Lightbox ---------- */

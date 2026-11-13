@@ -38,11 +38,15 @@ const I = {
 };
 const errAr = e => {
   const c = e?.code || '';
-  if (/invalid-credential|wrong-password|user-not-found|invalid-email/.test(c)) return 'الإيميل أو كلمة السر غير صحيحة';
+  if (/invalid-credential|wrong-password|user-not-found|invalid-email/.test(c)) return 'الإيميل أو كلمة السر غير صحيحة (أو المستخدم ده لسه مضافش في Firebase ← Authentication ← Users)';
+  if (/operation-not-allowed|configuration-not-found/.test(c)) return 'الدخول بالإيميل مش مفعّل: Firebase ← Authentication ← Sign-in method ← فعّل Email/Password (ولو أول مرة اضغط Get started)';
+  if (/api-key/.test(c)) return 'مفتاح apiKey غلط في assets/js/firebase-config.js — انسخه من Firebase ← Project settings';
+  if (/unauthorized-domain/.test(c)) return 'دومين الموقع مش مضاف: Firebase ← Authentication ← Settings ← Authorized domains';
+  if (/user-disabled/.test(c)) return 'الحساب ده متوقف في Firebase';
   if (/too-many-requests/.test(c)) return 'محاولات كتير، جرّب بعد شوية';
   if (/network/.test(c)) return 'مشكلة في الاتصال بالإنترنت';
   if (/PERMISSION_DENIED|permission/i.test(e?.message || c)) return 'مفيش صلاحية — راجع قواعد Firebase و ADMIN_UID';
-  return e?.message || 'حصلت مشكلة غير متوقعة';
+  return (c ? `[${c}] ` : '') + (e?.message || 'حصلت مشكلة غير متوقعة');
 };
 
 /* ---------- state ---------- */
@@ -102,7 +106,7 @@ function view() {
 function loginView() {
   root.innerHTML = `
   <div class="login">
-    <div class="login__logo"><img src="../assets/img/logo-512.webp" alt="GMV" width="96" height="96"></div>
+    <div class="login__logo"><img src="../assets/img/logo-sm.webp" alt="GMV Media" width="180" height="77"></div>
     <h1>لوحة التحكم</h1><p>سجّل دخولك لإدارة التصميمات والفيديوهات.</p>
     <form id="loginForm" novalidate>
       <div class="field"><label for="em">الإيميل</label><input class="input" id="em" type="email" autocomplete="username" dir="ltr" style="text-align:right" required></div>
@@ -141,7 +145,7 @@ const TABS = [['upload', 'رفع جديد', I.up], ['library', 'المكتبة',
 function appView() {
   root.innerHTML = `
   <header class="adm__top">
-    <div class="adm__brand"><img src="../assets/img/logo-512.webp" alt="" width="44" height="44"><div><b>لوحة GMV</b><small dir="ltr">${esc(S.user.email || '')}</small></div></div>
+    <div class="adm__brand"><img src="../assets/img/logo-sm.webp" alt="" width="89" height="38"><div><b>لوحة GMV</b><small dir="ltr">${esc(S.user.email || '')}</small></div></div>
     <div class="adm__top-r"><a class="btn btn--sm" href="../" target="_blank" rel="noopener">فتح الموقع</a><button class="btn btn--sm" id="logout" type="button">${I.out} خروج</button></div>
   </header>
   <nav class="tabs" id="tabs" role="tablist">${TABS.map(([id, t, ic]) => `<button type="button" role="tab" data-tab="${id}" class="${S.tab === id ? 'on' : ''}" aria-selected="${S.tab === id}">${ic}<span>${t}</span></button>`).join('')}</nav>
