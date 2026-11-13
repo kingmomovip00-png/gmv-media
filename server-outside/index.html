@@ -1,170 +1,27 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-base="../" data-page="services">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>خدمات المحلات الصغيرة — GMV Media</title>
-  <meta name="description" content="باقات وخدمات GMV Media للمحلات الصغيرة" />
-  <style>
-    @font-face { font-family: 'GMVFont'; src: url('../GMVFont.ttf') format('truetype'); font-display: swap; }
-    :root{ --green:#00a33b; --black:#111; --muted:#6d6d6d; --bg-opacity:0.05; }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'GMVFont',Arial,sans-serif;background:linear-gradient(135deg,#ffffff 0%,#9ce5b6 100%);color:var(--black);overflow-x:hidden;min-height:100vh;position:relative;}
-    body::before{content:'';position:fixed;inset:0;background-image:url('../logo.png');background-repeat:no-repeat;background-position:center;background-size:450px;opacity:var(--bg-opacity);z-index:1;pointer-events:none;filter:grayscale(1);}
-    .wrap{max-width:1200px;margin:0 auto;padding:28px;position:relative;z-index:2}
-    header{text-align:center;margin-bottom:30px}
-    h1{font-size:26px;color:var(--green);margin:20px 0;}
-    .menuBtn{position:fixed;right:18px;top:18px;background:#fff;border-radius:10px;padding:10px;border:1px solid #eee;cursor:pointer;z-index:2000}
-    .sidebar{position:fixed;right:-100%;top:0;width:340px;height:100%;background:rgba(0,0,0,.9);color:#fff;transition:.4s;z-index:1900;padding:30px;backdrop-filter:blur(6px)}
-    .sidebar.open{right:0}
-    .navItem{display:flex;align-items:center;gap:10px;padding:12px;border-radius:8px;cursor:pointer;transition:.2s}
-    .navItem:hover{background:rgba(255,255,255,.1)}
-    .navItem img{width:28px;filter:invert(1)}
-    .navItem span{font-weight:bold}
-
-    .grid{display:grid;grid-template-columns: repeat(2, 1fr); /* عمودين ثابت */gap: 16px;}
-    .card{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.08);cursor:pointer;background:#fff;}
-    .card img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
-    .card:hover img{transform:scale(1.05);}
-
-    .dialog{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:3000;align-items:center;justify-content:center;flex-direction:column;}
-    .dialog img{max-width:90%;max-height:70%;border-radius:14px;margin-bottom:20px;box-shadow:0 10px 30px rgba(0,0,0,.6);}
-    .dialog button{background:var(--green);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-size:16px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.2);}
-    .dialog button:hover{transform:scale(1.05);}
-    .backBtn {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  background: var(--green);
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  z-index: 2000;
-  box-shadow: 0 4px 10px rgba(0,0,0,.2);
-}
-.backBtn:hover {
-  background: #008f34;
-}
-@media (max-width: 600px) {
-  .wrap {
-    padding: 10px;
-    width: 100%;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  h2, h3 {
-    font-size: 18px;
-  }
-
-  .socials a {
-    font-size: 16px;
-    padding: 8px;
-  }
-
-  .masonry-item {
-    width: 100%;
-  }
-}
-.masonry-item img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>باقات العملاء خارج مصر — GMV Media</title>
+<meta name="description" content="باقات وأسعار GMV Media — خارج مصر.">
+<meta name="theme-color" content="#050b08">
+<meta property="og:title" content="باقات العملاء خارج مصر — GMV Media"><meta property="og:description" content="باقات وأسعار GMV Media — خارج مصر."><meta property="og:type" content="website"><meta property="og:locale" content="ar_AR">
+<link rel="icon" href="../assets/img/icon-192.png"><link rel="apple-touch-icon" href="../assets/img/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"><style>.reveal,.hero__title .w{opacity:1!important;transform:none!important}</style></noscript>
+<link rel="preload" href="../assets/gmvfont.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="modulepreload" href="../assets/js/site.js">
 </head>
 <body>
-<a href="../index.html" class="backBtn">← الرجوع للرئيسية</a>
-  <div class="menuBtn" id="menuBtn">☰</div>
-  <aside class="sidebar" id="sidebar">
-  <div class="navItem" id="homeLink" data-href="../index.html"><img src="../icons/home.svg"><span>الرئيسية</span></div>
-  <div class="navItem" id="servicesLink" data-href="#"><img src="../icons/services.svg"><span>خدماتنا</span></div>
-  <div class="navItem" id="worksLink" data-href="../Works/index.html"><img src="../icons/works.svg"><span>أعمالنا</span></div>
-  <div class="navItem" id="reviewsLink" data-href="../reviews/index.html"><img src="../icons/reviews.svg"><span>آراء العملاء</span></div>
-  <div class="navItem" id="contactLink" data-href="index.html"><img src="../icons/contact.svg"><span>خدمة العملاء</span></div>
-</aside>
-
-  <main class="wrap">
-    <header>
-      <h1>باقات العملاء خارج مصر</h1>
-      <p style="color:var(--muted);font-size:14px;">اختر الباقة المناسبة لك واضغط للاستفسار مباشرة عبر واتساب</p>
-    </header>
-
-    <section class="grid" id="offersGrid">
-      <div class="card"><img src="1.webp" alt="باقة 1"></div>
-      <div class="card"><img src="2.webp" alt="باقة 2"></div>
-      <div class="card"><img src="3.webp" alt="باقة 3"></div>
-      <div class="card"><img src="4.webp" alt="باقة 4"></div>
-      <div class="card"><img src="5.webp" alt="باقة 5"></div>
-      <div class="card"><img src="6.webp" alt="باقة 6"></div>
-    </section>
-    <!-- ملاحظة في نهاية الصفحة -->
-    <div style="margin-top:30px;text-align:center;background:#e9fdf0;border:1px solid #b6e3c4;padding:14px 10px;border-radius:10px;color:var(--black);font-size:15px;line-height:1.6;">
-      💡 <strong>ملحوظة:</strong> يمكن للعميل تبديل أو خصم أي عنصر من عناصر الباقة حسب احتياجاته، وسيتم تعديل السعر وفقًا لذلك.
-    </div>
-  </main>
-
-  <div class="dialog" id="dialog">
-    <img id="dialogImg" src="" alt="">
-    <button id="whatsBtn">💬 استفسر عن هذه الباقة</button>
-  </div>
-
-  <script>
-    // القائمة الجانبية
-    document.getElementById('menuBtn').addEventListener('click',()=> {
-      document.getElementById('sidebar').classList.toggle('open');
-    });
-    document.querySelectorAll('.navItem').forEach(it=>{
-      it.addEventListener('click',()=> location.href = it.dataset.href);
-    });
-
-    // عرض الصور داخل نافذة
-    const dialog = document.getElementById('dialog');
-    const dialogImg = document.getElementById('dialogImg');
-    const whatsBtn = document.getElementById('whatsBtn');
-    const whatsappNumber = "201508280795";
-
-    document.querySelectorAll('.card img').forEach(img=>{
-      img.addEventListener('click', ()=>{
-        dialogImg.src = img.src;
-        dialog.style.display = 'flex';
-      });
-    });
-
-    dialog.addEventListener('click', e=>{
-      if(e.target === dialog) dialog.style.display='none';
-    });
-
-    whatsBtn.addEventListener('click', ()=>{
-      const msg = encodeURIComponent("Hello, I would like to inquire about this package (Outside Egypt client).");
-      window.open(`https://wa.me/${whatsappNumber}?text=${msg}`,'_blank');
-    });
-    document.getElementById("servicesLink").addEventListener("click", (e) => {
-  e.preventDefault();
-
-  const type = (localStorage.getItem("gmv_usertype") || "").toLowerCase();
-
-  let target = "../server-small/index.html";  // افتراضي
-
-  if (type.includes("براند"))       target = "../server-brand/index.html";
-  else if (type.includes("خارج") || type.includes("بره"))  
-                                   target = "../server-outside/index.html";
-
-  window.location.href = target;
-});
-document.getElementById("contactLink").addEventListener("click", () => {
-  window.location.href = "../contact/index.html";
-});
-document.getElementById("reviewsLink").addEventListener("click", () => {
-  window.location.href = "../reviews/index.html";
-});
-document.getElementById("worksLink").addEventListener("click", () => {
-  window.location.href = "../Works/index.html";
-});
-  </script>
+<main id="main" class="wrap" data-cat="outside" data-msg="Hello, I would like to inquire about this package (Outside Egypt client).">
+  <div class="phead"><p class="eyebrow">الباقات والأسعار</p><h1 data-split>باقات العملاء خارج مصر</h1><p>اختر الباقة المناسبة لك واضغط للاستفسار مباشرة عبر واتساب.</p></div>
+  <nav class="seg" aria-label="نوع النشاط"><a href="../server-small/" data-cat="small">محل صغير</a><a href="../server-brand/" data-cat="brand">براند / شركة</a><a href="../server-outside/" data-cat="outside" class="on" aria-current="page">خارج مصر</a></nav>
+  <section class="pgrid" id="grid" aria-label="الباقات"></section>
+  <div class="note reveal"><span aria-hidden="true">💡</span><div><b>ملحوظة:</b> يمكن للعميل تبديل أو خصم أي عنصر من عناصر الباقة حسب احتياجاته، وسيتم تعديل السعر وفقًا لذلك.</div></div>
+</main>
+<script type="module" src="../assets/js/packages.js"></script>
 </body>
 </html>
