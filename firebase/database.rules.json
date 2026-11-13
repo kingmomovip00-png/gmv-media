@@ -1,0 +1,59 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "media": {
+      ".read": true,
+      ".write": "auth != null && auth.uid === 'PUT_ADMIN_UID_HERE'"
+    },
+    "overrides": {
+      ".read": true,
+      ".write": "auth != null && auth.uid === 'PUT_ADMIN_UID_HERE'"
+    },
+
+    "feedbacks": {
+      ".read": true,
+      "$id": {
+        ".write": "(auth != null && auth.uid === 'PUT_ADMIN_UID_HERE') || (!data.exists() && newData.exists())",
+        ".validate": "newData.hasChildren(['name','msg']) && newData.child('name').isString() && newData.child('name').val().length > 0 && newData.child('name').val().length <= 60 && newData.child('msg').isString() && newData.child('msg').val().length > 0 && newData.child('msg').val().length <= 600",
+        "name": {}, "msg": {},
+        "ts": { ".validate": "newData.isNumber()" },
+        "time": { ".validate": "newData.isString() && newData.val().length <= 80" },
+        "$other": { ".validate": false }
+      }
+    },
+
+    "supportMessages": {
+      ".read": "auth != null && auth.uid === 'PUT_ADMIN_UID_HERE'",
+      "$id": {
+        ".write": "(auth != null && auth.uid === 'PUT_ADMIN_UID_HERE') || (!data.exists() && newData.exists())",
+        ".validate": "newData.hasChildren(['name','phone','msg']) && newData.child('name').isString() && newData.child('name').val().length <= 60 && newData.child('phone').isString() && newData.child('phone').val().length <= 20 && newData.child('msg').isString() && newData.child('msg').val().length <= 1000",
+        "name": {}, "phone": {}, "msg": {},
+        "date": { ".validate": "newData.isString() && newData.val().length <= 80" },
+        "ts": { ".validate": "newData.isNumber()" },
+        "$other": { ".validate": false }
+      }
+    },
+
+    "users": {
+      ".read": "auth != null && auth.uid === 'PUT_ADMIN_UID_HERE'",
+      "$uid": {
+        ".write": "(auth != null && auth.uid === 'PUT_ADMIN_UID_HERE') || (!data.exists() && newData.exists())",
+        ".validate": "newData.hasChildren(['type','ts'])",
+        "type": { ".validate": "newData.isString() && newData.val().length <= 40" },
+        "ts": { ".validate": "newData.isNumber()" },
+        "time": { ".validate": "newData.isString() && newData.val().length <= 80" },
+        "page": { ".validate": "newData.isString() && newData.val().length <= 120" },
+        "$other": { ".validate": false }
+      }
+    },
+
+    "stats": {
+      ".read": true,
+      "visitors": {
+        ".write": "(auth != null && auth.uid === 'PUT_ADMIN_UID_HERE') || (newData.isNumber() && newData.val() === (data.exists() ? data.val() + 1 : 1))"
+      }
+    }
+  }
+}
